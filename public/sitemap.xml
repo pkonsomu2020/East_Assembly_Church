@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://eastassembly.org/</loc><priority>1.0</priority></url>
+  <url><loc>https://eastassembly.org/about</loc><priority>0.8</priority></url>
+  <url><loc>https://eastassembly.org/pastors</loc><priority>0.7</priority></url>
+  <url><loc>https://eastassembly.org/im-new</loc><priority>0.8</priority></url>
+  <url><loc>https://eastassembly.org/ministries</loc><priority>0.8</priority></url>
+  <url><loc>https://eastassembly.org/ministries/discipleship-ministry</loc><priority>0.6</priority></url>
+  <url><loc>https://eastassembly.org/ministries/marriage-care-ministry</loc><priority>0.6</priority></url>
+  <url><loc>https://eastassembly.org/ministries/youth-ministry</loc><priority>0.6</priority></url>
+  <url><loc>https://eastassembly.org/ministries/music-ministry</loc><priority>0.6</priority></url>
+  <url><loc>https://eastassembly.org/ministries/teens-ministry</loc><priority>0.6</priority></url>
+  <url><loc>https://eastassembly.org/ministries/childrens-ministry</loc><priority>0.6</priority></url>
+  <url><loc>https://eastassembly.org/ministries/chaplaincy-ministry</loc><priority>0.6</priority></url>
+  <url><loc>https://eastassembly.org/ministries/home-care-ministry</loc><priority>0.6</priority></url>
+  <url><loc>https://eastassembly.org/ministries/mens-young-mens-ministry</loc><priority>0.6</priority></url>
+  <url><loc>https://eastassembly.org/ministries/prayer-intercessory-ministry</loc><priority>0.6</priority></url>
+  <url><loc>https://eastassembly.org/ministries/womens-ministry</loc><priority>0.6</priority></url>
+  <url><loc>https://eastassembly.org/ministries/hospitality-welcome-ministry</loc><priority>0.6</priority></url>
+  <url><loc>https://eastassembly.org/ministries/media-communication-ministry</loc><priority>0.6</priority></url>
+  <url><loc>https://eastassembly.org/events</loc><priority>0.7</priority></url>
+  <url><loc>https://eastassembly.org/live</loc><priority>0.7</priority></url>
+  <url><loc>https://eastassembly.org/give</loc><priority>0.7</priority></url>
+  <url><loc>https://eastassembly.org/contact</loc><priority>0.7</priority></url>
+</urlset>

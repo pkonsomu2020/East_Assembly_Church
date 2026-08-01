@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eastassembly.org/sitemap.xml
