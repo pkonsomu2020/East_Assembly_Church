@@ -1,4 +1,4 @@
-import { type CSSProperties, useCallback, useEffect, useState } from 'react'
+import { type CSSProperties, useCallback, useEffect, useRef, useState } from 'react'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import { Hover } from '../components/Hover'
@@ -34,10 +34,53 @@ const iframeProps = {
   allowFullScreen: true,
 }
 
+/* YouTube no longer lets a page force a quality, so we ask for 720p every way the
+   player supports: a vq hint in the URL, then setPlaybackQuality through the
+   player API on load and each time playback starts. YouTube may still lower it
+   on a slow connection, and it keeps whatever the viewer picks manually. */
+const HD = 'hd720'
+const withHD = (src: string) => src + (src.includes('?') ? '&' : '?') + 'enablejsapi=1&vq=' + HD
+
+function QualityIframe({ src, title }: { src: string; title: string }) {
+  const ref = useRef<HTMLIFrameElement>(null)
+  const post = useCallback((msg: Record<string, unknown>) => {
+    ref.current?.contentWindow?.postMessage(JSON.stringify(msg), '*')
+  }, [])
+  const ask = useCallback(() => post({ event: 'command', func: 'setPlaybackQuality', args: [HD] }), [post])
+
+  useEffect(() => {
+    const onMessage = (e: MessageEvent) => {
+      if (e.source !== ref.current?.contentWindow) return
+      let data: { event?: string; info?: { playerState?: number } } | null = null
+      try {
+        data = typeof e.data === 'string' ? JSON.parse(e.data) : e.data
+      } catch {
+        return
+      }
+      if (data?.event === 'onReady' || data?.info?.playerState === 1) ask()
+    }
+    window.addEventListener('message', onMessage)
+    return () => window.removeEventListener('message', onMessage)
+  }, [ask])
+
+  return (
+    <iframe
+      ref={ref}
+      src={withHD(src)}
+      title={title}
+      onLoad={() => {
+        post({ event: 'listening', id: 1, channel: 'widget' })
+        ask()
+      }}
+      {...iframeProps}
+    />
+  )
+}
+
 function Frame({ src, title }: { src: string; title: string }) {
   return (
     <div style={{ position: 'relative', aspectRatio: '16/9', borderRadius: '24px', overflow: 'hidden', background: '#0b2a3d', boxShadow: '0 30px 66px rgba(16,80,120,.22)' }}>
-      <iframe src={src} title={title} {...iframeProps} />
+      <QualityIframe src={src} title={title} />
     </div>
   )
 }
@@ -133,31 +176,30 @@ export default function LiveStream() {
       <Nav active="home" />
 
       {/* HERO + LIVE PLAYER */}
-      <section style={{ background: 'linear-gradient(180deg,#ffffff,#f2f9fd)', borderBottom: '1px solid #e7f0f6' }}>
+      <section style={{ background: '#f2f9fd', borderBottom: '1px solid #e7f0f6' }}>
         <div style={{ maxWidth: '1040px', margin: '0 auto', padding: '60px 26px 20px', textAlign: 'center' }}>
           <span
             style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              background: '#fdecec',
-              border: '1px solid #f6b9bc',
-              color: '#ec1c24',
+              background: '#ec1c24',
+              color: '#fff',
               padding: '8px 16px',
-              borderRadius: '100px',
+              borderRadius: '6px',
               fontSize: '12.5px',
               fontWeight: 800,
               letterSpacing: '.05em',
-              animation: 'eaUp .6s ease both',
+              animation: 'eaUp .3s ease both',
             }}
           >
             <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ec1c24', display: 'inline-block', animation: 'eaPulse 1s infinite alternate' }} />
             LIVE SUNDAYS
           </span>
-          <h1 style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, fontSize: '46px', color: '#12384c', margin: '16px 0 10px', letterSpacing: '-.02em', animation: 'eaUp .7s ease .08s both' }}>
+          <h1 style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, fontSize: '46px', color: '#12384c', margin: '16px 0 10px', letterSpacing: '-.02em', animation: 'eaUp .3s ease .02s both' }}>
             Worship With Us <span style={{ color: '#00adee' }}>Online</span>
           </h1>
-          <p style={{ fontSize: '17px', color: '#5a6772', maxWidth: '640px', margin: '0 auto', animation: 'eaUp .7s ease .16s both' }}>
+          <p style={{ fontSize: '17px', color: '#5a6772', maxWidth: '640px', margin: '0 auto', animation: 'eaUp .3s ease .04s both' }}>
             This player streams live automatically whenever we&rsquo;re on air. At all other times it plays
             our most recent service, so there&rsquo;s always something to watch.
           </p>
@@ -174,10 +216,10 @@ export default function LiveStream() {
           )}
         </div>
         <div style={{ maxWidth: '1040px', margin: '0 auto', padding: '0 26px 56px', display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Hover as="a" href={CHANNEL_URL} target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '9px', textDecoration: 'none', color: '#ec1c24', fontWeight: 800, padding: '12px 22px', borderRadius: '100px', background: '#fdecec', border: '1.6px solid #f6b9bc' }} hoverStyle={{ background: '#ec1c24', color: '#fff', borderColor: '#ec1c24' }}>
+          <Hover as="a" href={CHANNEL_URL} target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '9px', textDecoration: 'none', color: '#fff', fontWeight: 700, padding: '12px 22px', borderRadius: '6px', background: '#ec1c24', border: 'none' }} hoverStyle={{ background: '#c4141b' }}>
             <Icon name="youtube" size={18} /> Open on YouTube
           </Hover>
-          <Hover as="a" href={FACEBOOK_URL} target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '9px', textDecoration: 'none', color: '#0e9fd6', fontWeight: 800, padding: '12px 22px', borderRadius: '100px', background: '#e8f7fd', border: '1.6px solid #b9e6f7' }} hoverStyle={{ background: '#00adee', color: '#fff', borderColor: '#00adee' }}>
+          <Hover as="a" href={FACEBOOK_URL} target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '9px', textDecoration: 'none', color: '#fff', fontWeight: 700, padding: '12px 22px', borderRadius: '6px', background: '#00adee', border: 'none' }} hoverStyle={{ background: '#0b8fc4' }}>
             <Icon name="facebook" size={18} /> Watch on Facebook
           </Hover>
         </div>
@@ -213,7 +255,7 @@ export default function LiveStream() {
                 >
                   <div style={{ position: 'relative', aspectRatio: '16/9', background: '#0b2a3d' }}>
                     {activeId === v.id ? (
-                      <iframe src={`https://www.youtube.com/embed/${v.id}?autoplay=1&rel=0`} title={v.title} {...iframeProps} />
+                      <QualityIframe src={`https://www.youtube.com/embed/${v.id}?autoplay=1&rel=0`} title={v.title} />
                     ) : (
                       <Hover
                         as="button"
@@ -256,7 +298,7 @@ export default function LiveStream() {
                 <Hover
                   as="button"
                   onClick={() => fetchPage(nextToken)}
-                  style={{ background: '#e8f7fd', color: '#0e9fd6', fontWeight: 800, border: '1.7px solid #b9e6f7', borderRadius: '100px', padding: '14px 34px', cursor: 'pointer', fontFamily: "'Mulish',sans-serif", fontSize: '15px' }}
+                  style={{ background: '#00adee', color: '#fff', fontWeight: 700, border: 'none', borderRadius: '6px', padding: '14px 34px', cursor: 'pointer', fontFamily: "'Mulish',sans-serif", fontSize: '15px' }}
                   hoverStyle={{ background: '#00adee', color: '#fff', borderColor: '#00adee' }}
                 >
                   Load more services
@@ -267,7 +309,7 @@ export default function LiveStream() {
                 href={`${CHANNEL_URL}/videos`}
                 target="_blank"
                 rel="noreferrer"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '9px', textDecoration: 'none', background: '#fdecec', color: '#ec1c24', fontWeight: 800, border: '1.7px solid #f6b9bc', borderRadius: '100px', padding: '14px 30px' }}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '9px', textDecoration: 'none', background: '#ec1c24', color: '#fff', fontWeight: 700, border: 'none', borderRadius: '6px', padding: '14px 30px' }}
                 hoverStyle={{ background: '#ec1c24', color: '#fff', borderColor: '#ec1c24' }}
               >
                 <Icon name="youtube" size={18} /> View all on YouTube

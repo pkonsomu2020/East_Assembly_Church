@@ -5,14 +5,27 @@ import Footer from '../components/Footer'
 import { Hover } from '../components/Hover'
 import { Icon } from '../components/Icon'
 import { useMotion } from '../hooks/useMotion'
+import { YBtn } from '../components/YouthKit'
 
-const cardLift = { transform: 'translateY(-7px)', boxShadow: '0 26px 50px rgba(16,80,120,.14)' }
+const RED = '#ec1c24'
+const BLUE = '#00adee'
+const NAVY = '#12384c'
+const TABS = [RED, BLUE, NAVY]
 
 const bg = (src: string, position = 'center'): CSSProperties => ({
   backgroundImage: `url(${src})`,
   backgroundSize: 'cover',
   backgroundPosition: position,
   backgroundRepeat: 'no-repeat',
+})
+
+/** A snapshot-style print: white border, soft natural shadow. */
+const print = (rotate: number): CSSProperties => ({
+  background: '#fff',
+  padding: '8px',
+  borderRadius: '4px',
+  boxShadow: '0 14px 30px rgba(11,42,61,.2)',
+  transform: `rotate(${rotate}deg)`,
 })
 
 interface Ministry {
@@ -27,20 +40,19 @@ interface Ministry {
 }
 
 const ministries: Ministry[] = [
-  { name: 'Youth Ministry', desc: 'Empowering young hearts with faith, fellowship, and fun as we grow in Christ together.', label: '[ youth ]', delay: 0, img: '/MINISTRIES/youth-img4.jpg', to: '/ministries/youth-ministry' },
-  { name: 'Music Ministry', desc: 'Bringing heavenly melodies to our worship, glorifying God through harmonious praise.', label: '[ music ]', delay: 80, img: '/MINISTRIES/music-min1.jpeg', imgPos: 'center 35%', to: '/ministries/music-ministry' },
-  { name: 'Teens Ministry', desc: 'A safe, vibrant space for teenagers to know Jesus, build friendships, and discover purpose.', label: '[ teens ]', delay: 160, img: '/MINISTRIES/teens3.jpg', to: '/ministries/teens-ministry' },
-  { name: 'Children’s Ministry', desc: 'Nurturing the youngest members with fun, safe, age-appropriate biblical teaching.', label: '[ children ]', delay: 0, to: '/ministries/childrens-ministry' },
-  { name: 'Discipleship Ministry', desc: 'Growing in faith, knowledge, and love, equipping believers to live out their faith boldly.', label: '[ discipleship ]', delay: 80, img: '/MINISTRIES/Descipleship-img.jpg', to: '/ministries/discipleship-ministry' },
-  { name: 'Chaplaincy Ministry', desc: 'Hospital visits, home care, and grief counseling, bringing comfort in times of need.', label: '[ chaplaincy ]', delay: 160, img: '/MINISTRIES/chaplaincy1.jpeg', to: '/ministries/chaplaincy-ministry' },
-  { name: 'Home Care Ministry', desc: 'Extending care, fellowship, and support to members through home visits and cell groups.', label: '[ home care ]', delay: 0, img: '/MINISTRIES/caregroup1.jpeg', to: '/ministries/home-care-ministry' },
-  { name: 'Marriage Care Ministry', desc: 'Strengthening marriages and families through counsel, mentorship, and godly community.', label: '[ marriage ]', delay: 80, img: '/MINISTRIES/marriage2.jpeg', to: '/ministries/marriage-care-ministry' },
-  { name: 'Men’s & Young Men’s', desc: 'Raising men of integrity who lead their families and communities with godly character.', label: '[ men ]', delay: 160, img: '/MINISTRIES/men1.jpg', imgPos: 'center 30%', to: '/ministries/mens-young-mens-ministry' },
-  { name: 'Prayer & Intercessory', desc: 'A devoted community standing in the gap through prayer for the church and the nations.', label: '[ prayer ]', delay: 0, img: '/MINISTRIES/prayer1.jpeg', imgPos: 'center 30%', to: '/ministries/prayer-intercessory-ministry' },
-  { name: 'Women’s Ministry', desc: 'Royal Daughters & Lady of Virtue, empowering women to flourish in faith and purpose.', label: '[ women ]', delay: 80, img: '/MINISTRIES/women1.jpg', imgPos: 'center 30%', to: '/ministries/womens-ministry' },
-  { name: 'Hospitality & Welcome', desc: 'Making every guest feel at home with warmth, care, and a genuine welcome.', label: '[ hospitality ]', delay: 160, img: '/welcome-bg.jpeg', imgPos: 'center 30%', to: '/ministries/hospitality-welcome-ministry' },
-  { name: 'Media & Communication', desc: 'Sharing the Gospel through media, live streaming, and creative storytelling.', label: '[ media ]', delay: 0, img: '/MINISTRIES/media1.jpeg', to: '/ministries/media-communication-ministry' },
-  { name: 'Home Groups', desc: 'Doing life together in smaller communities that pray, study, and grow as one family.', label: '[ groups ]', delay: 80, img: '/MINISTRIES/caregroup2.jpeg' },
+  { name: 'Youth Ministry', desc: 'Empowering young hearts with faith, fellowship, and fun. Join us as we grow in Christ together!', label: '[ youth ]', delay: 0, img: '/thumbs/youth-img4.jpg', to: '/ministries/youth-ministry' },
+  { name: 'Music Ministry', desc: 'Bringing heavenly melodies to our worship, our Music Ministry glorifies God through harmonious praise.', label: '[ music ]', delay: 80, img: '/thumbs/music-min1.jpeg', imgPos: 'center 35%', to: '/ministries/music-ministry' },
+  { name: 'Teens Ministry', desc: 'Empowering teens to live boldly for Christ. Providing a place to grow, connect, and impact the world.', label: '[ teens ]', delay: 160, img: '/thumbs/teens3.jpg', to: '/ministries/teens-ministry' },
+  { name: 'Children’s Ministry', desc: 'Nurturing young hearts to know and love Jesus. Providing a safe and fun environment for kids to grow in faith.', label: '[ children ]', delay: 0, to: '/ministries/childrens-ministry' },
+  { name: 'Discipleship Ministry', desc: 'Growing in faith, knowledge, and love. Our Discipleship Ministry equips believers to live out their faith boldly.', label: '[ discipleship ]', delay: 80, img: '/thumbs/Descipleship-img.jpg', to: '/ministries/discipleship-ministry' },
+  { name: 'Chaplaincy Ministry', desc: 'Bringing comfort, hope, and spiritual support. Serving those in need with compassion and grace.', label: '[ chaplaincy ]', delay: 160, img: '/thumbs/chaplaincy1.jpeg', to: '/ministries/chaplaincy-ministry' },
+  { name: 'Home Care Ministry', desc: 'Bringing Christ’s love and care to your doorstep. Offering support and companionship to those in need.', label: '[ home care ]', delay: 0, img: '/thumbs/caregroup1.jpeg', to: '/ministries/home-care-ministry' },
+  { name: 'Marriage Care Ministry', desc: 'Strengthening marriages with love and wisdom. Providing support and guidance for couples.', label: '[ marriage ]', delay: 80, img: '/thumbs/marriage2.jpeg', to: '/ministries/marriage-care-ministry' },
+  { name: 'Men’s & Young Men’s', desc: 'Empowering men and young men to follow Jesus. Equipping and inspiring growth in faith and leadership.', label: '[ men ]', delay: 160, img: '/thumbs/men1.jpg', imgPos: 'center 30%', to: '/ministries/mens-young-mens-ministry' },
+  { name: 'Prayer & Intercessory', desc: 'Connecting hearts to God through prayer. Dedicated to seeking God’s will and power.', label: '[ prayer ]', delay: 0, img: '/thumbs/prayer1.jpeg', imgPos: 'center 30%', to: '/ministries/prayer-intercessory-ministry' },
+  { name: 'Women’s Ministry (Royal Daughters / Lady of Virtue)', desc: 'Royal Daughters / Lady of Virtue. Nurturing women in their journey with Jesus. Our Women’s Ministry provides support, fellowship, and spiritual growth opportunities.', label: '[ women ]', delay: 80, img: '/thumbs/women1.jpg', imgPos: 'center 30%', to: '/ministries/womens-ministry' },
+  { name: 'Hospitality & Welcome', desc: 'Welcoming all with open arms. Our Hospitality Ministry creates a warm and inviting atmosphere for everyone.', label: '[ hospitality ]', delay: 160, img: '/thumbs/welcome-bg.jpeg', imgPos: 'center 30%', to: '/ministries/hospitality-welcome-ministry' },
+  { name: 'Media & Communication', desc: 'Enhancing worship experiences through technology. Managing audio, visual systems, and social media to connect and inspire.', label: '[ media ]', delay: 0, img: '/thumbs/media1.jpeg', to: '/ministries/media-communication-ministry' },
 ]
 
 export default function Ministries() {
@@ -50,125 +62,101 @@ export default function Ministries() {
     <div style={{ fontFamily: "'Mulish',sans-serif", background: '#fff', color: '#4a5763', paddingTop: '92px' }}>
       <Nav active="ministries" />
 
-      <section style={{ background: 'linear-gradient(180deg,#ffffff,#f2f9fd)', borderBottom: '1px solid #e7f0f6' }}>
-        <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '76px 26px', textAlign: 'center' }}>
-          <span style={{ color: '#ec1c24', fontWeight: 800, letterSpacing: '.14em', fontSize: '13px', animation: 'eaUp .6s ease both' }}>
-            GET INVOLVED
-          </span>
-          <h1
-            style={{
-              fontFamily: "'Plus Jakarta Sans'",
-              fontWeight: 800,
-              fontSize: '52px',
-              color: '#00adee',
-              margin: '14px 0 16px',
-              letterSpacing: '-.02em',
-              animation: 'eaUp .7s ease .08s both',
-            }}
-          >
-            Our Ministries
-          </h1>
-          <p
-            style={{
-              fontSize: '18px',
-              color: '#5a6772',
-              maxWidth: '640px',
-              margin: '0 auto',
-              lineHeight: 1.65,
-              animation: 'eaUp .7s ease .16s both',
-            }}
-          >
-            Explore the many ways to grow spiritually, connect with others, and serve our community. There&rsquo;s a place for everyone.
-          </p>
-        </div>
-      </section>
-
-      <section style={{ maxWidth: '1260px', margin: '0 auto', padding: '80px 26px 96px' }}>
-        <div className="ea-3col" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '24px' }}>
-          {ministries.map((m) => (
-            <Hover
-              key={m.name}
-              data-reveal
-              data-reveal-delay={m.delay}
-              style={{
-                background: '#fff',
-                border: '1px solid #e7f0f6',
-                borderRadius: '22px',
-                overflow: 'hidden',
-                boxShadow: '0 8px 26px rgba(16,80,120,.06)',
-                display: 'flex',
-                flexDirection: 'column',
-                transition: 'transform .25s,box-shadow .25s',
-              }}
-              hoverStyle={cardLift}
-            >
-              {m.img ? (
-                <div role="img" aria-label={m.name} style={{ aspectRatio: '16/9', ...bg(m.img, m.imgPos) }} />
-              ) : (
-                <div
-                  style={{
-                    aspectRatio: '16/9',
-                    background: 'linear-gradient(135deg,#e8f7fd,#fdecec)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#0e9fd6',
-                  }}
-                >
-                  <Icon name="child" size={56} />
-                </div>
-              )}
-              <div style={{ padding: '26px', display: 'flex', flexDirection: 'column', flex: 1 }}>
-                <h3 style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, fontSize: '20px', color: '#12384c', margin: '0 0 10px' }}>
-                  {m.name}
-                </h3>
-                <p style={{ color: '#5a6772', lineHeight: 1.6, fontSize: '14.5px', margin: '0 0 18px', flex: 1 }}>{m.desc}</p>
-                <Link to={m.to ?? '/contact'} style={{ color: '#ec1c24', fontWeight: 800, fontSize: '14.5px', textDecoration: 'none' }}>
-                  Read more &rarr;
-                </Link>
-              </div>
-            </Hover>
-          ))}
-        </div>
-      </section>
-
-      <section style={{ padding: '0 26px 96px' }}>
+      {/* HEADER */}
+      <section style={{ background: '#f2f9fd', overflow: 'hidden' }}>
         <div
-          data-reveal="scale"
-          style={{
-            maxWidth: '1000px',
-            margin: '0 auto',
-            background: 'linear-gradient(135deg,#00adee,#0b7bb0)',
-            color: '#fff',
-            borderRadius: '28px',
-            padding: '60px',
-            textAlign: 'center',
-            boxShadow: '0 30px 60px rgba(0,120,180,.22)',
-          }}
+          className="ea-2col"
+          style={{ maxWidth: '1260px', margin: '0 auto', padding: '70px 26px 80px', display: 'grid', gridTemplateColumns: '1.15fr .85fr', gap: '40px', alignItems: 'center' }}
         >
-          <h2 style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, fontSize: '34px', margin: '0 0 14px', textWrap: 'balance' }}>
+          <div>
+            <span style={{ color: RED, fontWeight: 800, letterSpacing: '.14em', fontSize: '13px', animation: 'eaUp .3s ease both', display: 'inline-block' }}>
+              SERVING, GROWING, AND IMPACTING TOGETHER
+            </span>
+            <h1
+              style={{
+                fontFamily: "'Plus Jakarta Sans'",
+                fontWeight: 800,
+                fontSize: 'clamp(38px, 5.4vw, 70px)',
+                color: NAVY,
+                margin: '16px 0 20px',
+                letterSpacing: '-.03em',
+                lineHeight: 1.02,
+                textWrap: 'balance',
+                animation: 'eaUp .3s ease .02s both',
+              }}
+            >
+              Ministries at <span style={{ color: BLUE }}>East Assembly</span> Church
+            </h1>
+            <p style={{ fontSize: '18px', color: '#5a6772', maxWidth: '600px', margin: 0, lineHeight: 1.7, animation: 'eaUp .3s ease .04s both' }}>
+              Explore the diverse ministries at East Assembly Church, each offering unique opportunities for service, growth, and community impact. Discover where you can plug in and make a difference!
+            </p>
+          </div>
+          <div className="ea-hide-md" style={{ position: 'relative', height: '340px', animation: 'eaUp .3s ease .03s both' }} aria-hidden="true">
+            <div style={{ position: 'absolute', left: '2%', top: '8%', width: '52%', ...print(-6) }}>
+              <div style={{ aspectRatio: '4/5', ...bg('/thumbs/youth-img4.jpg') }} />
+            </div>
+            <div style={{ position: 'absolute', right: '0', top: '0', width: '50%', ...print(5) }}>
+              <div style={{ aspectRatio: '1', ...bg('/thumbs/music-min1.jpeg', 'center 35%') }} />
+            </div>
+            <div style={{ position: 'absolute', right: '10%', bottom: '0', width: '44%', ...print(-3) }}>
+              <div style={{ aspectRatio: '4/3', ...bg('/thumbs/men1.jpg', 'center 30%') }} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* DIRECTORY */}
+      <section style={{ maxWidth: '1260px', margin: '0 auto', padding: '90px 26px 100px' }}>
+        <div className="ea-3col ea-mgrid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '40px 28px', alignItems: 'start' }}>
+          {ministries.map((m, i) => {
+            const tab = TABS[i % 3]
+            return (
+              <div key={m.name} data-reveal data-reveal-delay={m.delay}>
+                <div className="ea-mcard" style={{ background: '#fff', border: '1px solid #e3edf4', borderRadius: '6px', overflow: 'hidden', boxShadow: '0 10px 26px rgba(16,80,120,.08)' }}>
+                  <div style={{ position: 'relative', overflow: 'hidden', aspectRatio: '4 / 3' }}>
+                    {m.img ? (
+                      <div className="ea-mimg" role="img" aria-label={m.name} style={{ position: 'absolute', inset: 0, ...bg(m.img, m.imgPos) }} />
+                    ) : (
+                      <div style={{ position: 'absolute', inset: 0, background: '#ffd23f', color: NAVY, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <Icon name="child" size={72} />
+                      </div>
+                    )}
+                    <span
+                      className="ea-mtab"
+                      style={{ position: 'absolute', left: 0, bottom: 0, background: tab, color: '#fff', fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, fontSize: '15px', letterSpacing: '.08em', padding: '8px 16px' }}
+                    >
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <div style={{ padding: '24px 24px 26px' }}>
+                    <h3 style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, fontSize: '21px', lineHeight: 1.2, color: NAVY, margin: '0 0 10px' }}>{m.name}</h3>
+                    <p style={{ color: '#5a6772', lineHeight: 1.65, fontSize: '15px', margin: '0 0 20px' }}>{m.desc}</p>
+                    <Hover
+                      as={Link}
+                      to={m.to ?? '/contact'}
+                      style={{ display: 'inline-block', textDecoration: 'none', background: tab, color: '#fff', fontWeight: 800, fontSize: '13.5px', letterSpacing: '.04em', textTransform: 'uppercase', padding: '11px 20px', borderRadius: '4px', transition: 'opacity .15s' }}
+                      hoverStyle={{ opacity: 0.85 }}
+                    >
+                      Read more &rarr;
+                    </Hover>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section style={{ padding: '0 26px 100px' }}>
+        <div data-reveal="scale" style={{ maxWidth: '1000px', margin: '0 auto', background: BLUE, color: '#fff', borderRadius: '8px', padding: 'clamp(40px, 6vw, 64px)', textAlign: 'center' }}>
+          <h2 style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, fontSize: 'clamp(28px, 4vw, 42px)', letterSpacing: '-.02em', margin: '0 0 14px', textWrap: 'balance' }}>
             Not sure where you fit? Let&rsquo;s help.
           </h2>
-          <p style={{ color: '#e2f4fc', fontSize: '17px', maxWidth: '520px', margin: '0 auto 28px', lineHeight: 1.6 }}>
+          <p style={{ fontSize: '18px', maxWidth: '520px', margin: '0 auto 28px', lineHeight: 1.65 }}>
             Reach out and we&rsquo;ll connect you with the right ministry and people.
           </p>
-          <Hover
-            as={Link}
-            to="/contact"
-            style={{
-              textDecoration: 'none',
-              background: '#fff',
-              color: '#0b7bb0',
-              fontWeight: 800,
-              padding: '15px 32px',
-              borderRadius: '100px',
-              display: 'inline-block',
-              transition: 'transform .2s',
-            }}
-            hoverStyle={{ transform: 'translateY(-2px)' }}
-          >
-            Get Connected
-          </Hover>
+          <YBtn to="/contact" bg="#fff" fg="#0b7bb0" hover="#e8f7fd">Get Connected</YBtn>
         </div>
       </section>
 

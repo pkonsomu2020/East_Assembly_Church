@@ -79,13 +79,13 @@ export default function MarriageCareMinistry() {
           alignItems: 'flex-end',
           color: '#fff',
           backgroundImage:
-            'linear-gradient(180deg, rgba(11,42,61,.5) 0%, rgba(11,42,61,.12) 32%, rgba(11,42,61,.92) 100%), url(/MINISTRIES/marriage1.jpeg)',
+            'linear-gradient(rgba(11,42,61,.92),rgba(11,42,61,.92)), url(/MINISTRIES/marriage1.jpeg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
         <div style={{ maxWidth: '1160px', margin: '0 auto', padding: '0 26px 74px', width: '100%', boxSizing: 'border-box' }}>
-          <span style={{ ...eyebrow, color: '#f0c674', animation: 'eaUp .6s ease both' }}>Marriage Care Ministry · MCM</span>
+          <span style={{ ...eyebrow, color: '#f0c674', animation: 'eaUp .3s ease both' }}>Marriage Care Ministry · MCM</span>
           <h1
             style={{
               fontFamily: "'Plus Jakarta Sans'",
@@ -96,19 +96,19 @@ export default function MarriageCareMinistry() {
               margin: '16px 0 18px',
               maxWidth: '760px',
               textWrap: 'balance',
-              animation: 'eaUp .7s ease .08s both',
+              animation: 'eaUp .3s ease .02s both',
             }}
           >
             Loving Stronger Together
           </h1>
-          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '20px', animation: 'eaUp .7s ease .12s both' }}>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '20px', animation: 'eaUp .3s ease .03s both' }}>
             {['Wisdom', 'Love', 'Unity'].map((t) => (
               <span
                 key={t}
                 style={{
                   border: '1px solid rgba(255,255,255,.5)',
                   background: 'rgba(255,255,255,.1)',
-                  borderRadius: '100px',
+                  borderRadius: '6px',
                   padding: '7px 16px',
                   fontSize: '13px',
                   fontWeight: 800,
@@ -119,11 +119,11 @@ export default function MarriageCareMinistry() {
               </span>
             ))}
           </div>
-          <p style={{ fontSize: '18.5px', lineHeight: 1.7, color: '#e6eef4', maxWidth: '620px', margin: '0 0 32px', animation: 'eaUp .7s ease .16s both' }}>
+          <p style={{ fontSize: '18.5px', lineHeight: 1.7, color: '#e6eef4', maxWidth: '620px', margin: '0 0 32px', animation: 'eaUp .3s ease .04s both' }}>
             Marriage Care Ministry (MCM) at East Assembly Church is a platform for couples, young and
             old, to care for one another and build marriages that endure.
           </p>
-          <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', animation: 'eaUp .7s ease .24s both' }}>
+          <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', animation: 'eaUp .3s ease .06s both' }}>
             <Hover
               as={Link}
               to="/contact"
@@ -132,8 +132,8 @@ export default function MarriageCareMinistry() {
                 color: '#fff',
                 fontWeight: 800,
                 padding: '15px 30px',
-                borderRadius: '100px',
-                background: 'linear-gradient(135deg,#ec1c24,#ff5058)',
+                borderRadius: '6px',
+                background: '#ec1c24',
                 boxShadow: '0 12px 30px rgba(236,28,36,.35)',
                 fontSize: '15.5px',
               }}
@@ -149,12 +149,11 @@ export default function MarriageCareMinistry() {
                 color: '#fff',
                 fontWeight: 800,
                 padding: '15px 30px',
-                borderRadius: '100px',
-                background: 'rgba(255,255,255,.14)',
-                border: '1.6px solid rgba(255,255,255,.55)',
+                borderRadius: '6px',
+                background: '#12384c',
                 fontSize: '15.5px',
               }}
-              hoverStyle={{ background: 'rgba(255,255,255,.24)' }}
+              hoverStyle={{ background: '#0b2a3d' }}
             >
               All Ministries
             </Hover>
@@ -277,7 +276,7 @@ export default function MarriageCareMinistry() {
                   height: '50px',
                   flex: 'none',
                   borderRadius: '14px',
-                  background: 'linear-gradient(135deg,#fbeede,#f7e2c4)',
+                  background: '#fbeede',
                   color: GOLD,
                   display: 'flex',
                   alignItems: 'center',
@@ -298,7 +297,7 @@ export default function MarriageCareMinistry() {
         style={{
           position: 'relative',
           color: '#fff',
-          backgroundImage: 'linear-gradient(135deg, rgba(18,56,76,.94), rgba(11,42,61,.9)), url(/MINISTRIES/marriage2.jpeg)',
+          backgroundImage: 'linear-gradient(rgba(18,56,76,.94),rgba(18,56,76,.94)), url(/MINISTRIES/marriage2.jpeg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -320,7 +319,7 @@ export default function MarriageCareMinistry() {
           style={{
             maxWidth: '1000px',
             margin: '0 auto',
-            background: 'linear-gradient(135deg,#ec1c24,#ff5058)',
+            background: '#ec1c24',
             color: '#fff',
             borderRadius: '28px',
             padding: '60px',
@@ -345,7 +344,7 @@ export default function MarriageCareMinistry() {
                 color: '#ec1c24',
                 fontWeight: 800,
                 padding: '15px 32px',
-                borderRadius: '100px',
+                borderRadius: '6px',
                 display: 'inline-block',
                 transition: 'transform .2s',
               }}
@@ -358,16 +357,15 @@ export default function MarriageCareMinistry() {
               to="/ministries"
               style={{
                 textDecoration: 'none',
-                background: 'rgba(255,255,255,.16)',
-                border: '1.7px solid rgba(255,255,255,.55)',
+                background: '#12384c',
                 color: '#fff',
                 fontWeight: 800,
                 padding: '15px 32px',
-                borderRadius: '100px',
+                borderRadius: '6px',
                 display: 'inline-block',
                 transition: 'background .2s',
               }}
-              hoverStyle={{ background: 'rgba(255,255,255,.26)' }}
+              hoverStyle={{ background: '#0b2a3d' }}
             >
               Back to Ministries
             </Hover>

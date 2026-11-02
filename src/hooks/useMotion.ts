@@ -30,15 +30,26 @@ export function useMotion(): void {
     )
 
     const prep = () => {
-      q('[data-reveal]').forEach((el) => {
+      const fresh = q('[data-reveal]').filter((el) => {
         const marked = el as HTMLElement & { __ea?: number }
-        if (marked.__ea) return
+        if (marked.__ea) return false
         marked.__ea = 1
+        return true
+      })
+      if (!fresh.length) return
 
+      // Read every position first, then write: one layout pass for the whole
+      // page instead of a forced layout per element.
+      const limit = vh() * 0.9
+      const onScreen = fresh.map((el) => {
+        const rect = el.getBoundingClientRect()
+        return rect.top < limit && rect.bottom > 0
+      })
+
+      fresh.forEach((el, i) => {
         // Already on screen when the page loads → show instantly, no hide, no
         // fade, no delay. This is what makes navigation feel immediate.
-        const rect = el.getBoundingClientRect()
-        if (rect.top < vh() * 0.9 && rect.bottom > 0) {
+        if (onScreen[i]) {
           el.style.opacity = '1'
           el.style.transform = 'none'
           return

@@ -68,8 +68,8 @@ export default function HomeCareMinistry() {
 
       {/* HERO - split: text left, image right */}
       <section className="ea-2col" style={{ display: 'grid', gridTemplateColumns: '1.05fr .95fr', minHeight: '560px' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '150px 6% 70px', background: 'linear-gradient(160deg,#eaf7fe,#f2f9fd)' }}>
-          <span style={{ ...eyebrow, animation: 'eaUp .6s ease both' }}>Home Care Ministry</span>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '150px 6% 70px', background: '#f2f9fd' }}>
+          <span style={{ ...eyebrow, animation: 'eaUp .3s ease both' }}>Home Care Ministry</span>
           <h1
             style={{
               fontFamily: "'Plus Jakarta Sans'",
@@ -80,16 +80,16 @@ export default function HomeCareMinistry() {
               color: '#12384c',
               margin: '16px 0 20px',
               textWrap: 'balance',
-              animation: 'eaUp .7s ease .08s both',
+              animation: 'eaUp .3s ease .02s both',
             }}
           >
             Building community, sharing life
           </h1>
-          <p style={{ ...lead, maxWidth: '520px', margin: '0 0 30px', animation: 'eaUp .7s ease .16s both' }}>
+          <p style={{ ...lead, maxWidth: '520px', margin: '0 0 30px', animation: 'eaUp .3s ease .04s both' }}>
             Part of our cell group ministry, Home Care is a family of 14 care zones, each led by a dedicated
             team, offering a supportive community close to where you live.
           </p>
-          <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', animation: 'eaUp .7s ease .24s both' }}>
+          <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', animation: 'eaUp .3s ease .06s both' }}>
             <Link to="/contact" className="ea-btn-r">Join a Care Zone</Link>
             <Link to="/ministries" className="ea-btn-b">All Ministries</Link>
           </div>
@@ -132,7 +132,7 @@ export default function HomeCareMinistry() {
         style={{
           position: 'relative',
           color: '#fff',
-          backgroundImage: 'linear-gradient(135deg, rgba(11,42,61,.82), rgba(14,95,134,.78)), url(/MINISTRIES/caregroup3.jpeg)',
+          backgroundImage: 'linear-gradient(rgba(11,42,61,.82),rgba(11,42,61,.82)), url(/MINISTRIES/caregroup3.jpeg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -178,7 +178,7 @@ export default function HomeCareMinistry() {
               </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                 {o.zones.map((z) => (
-                  <span key={z} style={{ background: '#f2f9fd', border: '1px solid #dbe8f1', color: '#33434f', fontSize: '13px', fontWeight: 600, padding: '6px 13px', borderRadius: '100px' }}>{z}</span>
+                  <span key={z} style={{ background: '#00adee', color: '#fff', fontSize: '13px', fontWeight: 600, padding: '6px 13px', borderRadius: '6px' }}>{z}</span>
                 ))}
               </div>
             </div>
@@ -193,7 +193,7 @@ export default function HomeCareMinistry() {
           style={{
             maxWidth: '1000px',
             margin: '0 auto',
-            background: 'linear-gradient(135deg,#00adee,#0b7bb0)',
+            background: '#00adee',
             color: '#fff',
             borderRadius: '28px',
             padding: '60px',
@@ -209,10 +209,10 @@ export default function HomeCareMinistry() {
             find your place.
           </p>
           <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Hover as={Link} to="/contact" style={{ textDecoration: 'none', background: '#fff', color: '#0b7bb0', fontWeight: 800, padding: '15px 32px', borderRadius: '100px', display: 'inline-block', transition: 'transform .2s' }} hoverStyle={{ transform: 'translateY(-2px)' }}>
+            <Hover as={Link} to="/contact" style={{ textDecoration: 'none', background: '#fff', color: '#0b7bb0', fontWeight: 800, padding: '15px 32px', borderRadius: '6px', display: 'inline-block', transition: 'transform .2s' }} hoverStyle={{ transform: 'translateY(-2px)' }}>
               Get Connected
             </Hover>
-            <Hover as={Link} to="/ministries" style={{ textDecoration: 'none', background: 'rgba(255,255,255,.16)', border: '1.7px solid rgba(255,255,255,.55)', color: '#fff', fontWeight: 800, padding: '15px 32px', borderRadius: '100px', display: 'inline-block', transition: 'background .2s' }} hoverStyle={{ background: 'rgba(255,255,255,.26)' }}>
+            <Hover as={Link} to="/ministries" style={{ textDecoration: 'none', background: '#12384c', color: '#fff', fontWeight: 800, padding: '15px 32px', borderRadius: '6px', display: 'inline-block', transition: 'background .2s' }} hoverStyle={{ background: '#0b2a3d' }}>
               Back to Ministries
             </Hover>
           </div>

@@ -30,7 +30,7 @@ function RegisterButton({ e, light }: { e: EventItem; light?: boolean }) {
     fontWeight: 800,
     fontSize: '14px',
     padding: '11px 22px',
-    borderRadius: '100px',
+    borderRadius: '6px',
     background: light ? '#fff' : e.color,
     color: light ? e.color : '#fff',
     alignSelf: 'flex-start',
@@ -77,14 +77,14 @@ export function EventCard({ e }: { e: EventItem }) {
           fontSize: '12px',
           letterSpacing: '.04em',
           padding: '6px 14px',
-          borderRadius: '100px',
+          borderRadius: '6px',
         }}
       >
         {e.category}
       </span>
 
       {/* Always-visible summary */}
-      <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(180deg,transparent 45%,rgba(11,42,61,.92))' }} />
+      <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'rgba(11,42,61,.6)' }} />
       <div
         style={{
           position: 'absolute',
@@ -111,7 +111,7 @@ export function EventCard({ e }: { e: EventItem }) {
           position: 'absolute',
           inset: 0,
           zIndex: 4,
-          background: 'linear-gradient(150deg,rgba(18,56,76,.96),rgba(11,42,61,.97))',
+          background: 'rgba(11,42,61,.97)',
           color: '#fff',
           padding: '26px',
           display: 'flex',
@@ -165,7 +165,7 @@ export function EventCardDetailed({ e, past }: { e: EventItem; past?: boolean })
             fontSize: '12px',
             letterSpacing: '.04em',
             padding: '6px 14px',
-            borderRadius: '100px',
+            borderRadius: '6px',
           }}
         >
           {past ? 'Past' : e.category}

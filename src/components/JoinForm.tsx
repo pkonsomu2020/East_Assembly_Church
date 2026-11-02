@@ -125,10 +125,9 @@ function Radios({ name, options, value, onChange, required }: { name: string; op
             <span
               style={{
                 display: 'inline-block',
-                border: `1.5px solid ${sel ? '#00adee' : '#dbe8f1'}`,
-                background: sel ? '#e8f7fd' : '#fff',
-                color: sel ? '#0e9fd6' : '#33434f',
-                borderRadius: '100px',
+                background: sel ? '#00adee' : '#e6edf2',
+                color: sel ? '#fff' : '#33434f',
+                borderRadius: '6px',
                 padding: '9px 18px',
                 fontSize: '14px',
                 fontWeight: 700,
@@ -175,7 +174,7 @@ export default function JoinForm() {
             width: '68px',
             height: '68px',
             borderRadius: '50%',
-            background: 'linear-gradient(135deg,#00adee,#0b7bb0)',
+            background: '#00adee',
             color: '#fff',
             fontSize: '32px',
             display: 'flex',
@@ -364,16 +363,15 @@ export default function JoinForm() {
         style={{
           width: '100%',
           padding: '16px',
-          borderRadius: '100px',
+          borderRadius: '6px',
           border: 'none',
-          background: 'linear-gradient(135deg,#ec1c24,#ff5058)',
+          background: '#ec1c24',
           color: '#fff',
-          fontWeight: 800,
+          fontWeight: 700,
           fontFamily: "'Mulish',sans-serif",
           fontSize: '16px',
           cursor: 'pointer',
           marginTop: '12px',
-          boxShadow: '0 12px 28px rgba(236,28,36,.25)',
         }}
       >
         Submit Registration

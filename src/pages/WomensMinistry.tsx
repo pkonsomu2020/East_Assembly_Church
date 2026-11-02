@@ -19,7 +19,7 @@ const OBJECTIVES = [
 ]
 
 const MISSIONETTES = [
-  { color: '#ec1c24', tint: '#fdecec', icon: 'sparkles', title: 'Rainbow', age: 'Preschool' },
+  { color: '#ec1c24', tint: '#fdecec', icon: 'sun', title: 'Rainbow', age: 'Preschool' },
   { color: '#00adee', tint: '#e8f7fd', icon: 'flower', title: 'Daisies', age: 'Kindergarten - Grade 1' },
   { color: '#0e9fd6', tint: '#e8f7fd', icon: 'heart', title: 'Primes', age: 'Grade 2 - 3' },
   { color: '#ec1c24', tint: '#fdecec', icon: 'star', title: 'Stars', age: 'Grade 4 - 8 & young ladies' },
@@ -43,17 +43,17 @@ export default function WomensMinistry() {
       {/* HERO - image left, text right */}
       <section className="ea-2col" style={{ display: 'grid', gridTemplateColumns: '.95fr 1.05fr', minHeight: '580px' }}>
         <div role="img" aria-label="Royal Daughters women leaders" style={{ minHeight: '340px', ...bg('/MINISTRIES/women4.jpg', 'center 25%') }} />
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '150px 6% 70px', background: 'linear-gradient(160deg,#fef1f1,#f2f9fd)' }}>
-          <span style={{ ...eyebrow, animation: 'eaUp .6s ease both' }}>Royal Daughters · Lady of Virtue</span>
-          <h1 style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, fontSize: '52px', lineHeight: 1.06, letterSpacing: '-.02em', color: '#12384c', margin: '16px 0 18px', textWrap: 'balance', animation: 'eaUp .7s ease .08s both' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '150px 6% 70px', background: '#f2f9fd' }}>
+          <span style={{ ...eyebrow, animation: 'eaUp .3s ease both' }}>Royal Daughters · Lady of Virtue</span>
+          <h1 style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, fontSize: '52px', lineHeight: 1.06, letterSpacing: '-.02em', color: '#12384c', margin: '16px 0 18px', textWrap: 'balance', animation: 'eaUp .3s ease .02s both' }}>
             Empowered women, growing together
           </h1>
-          <p style={{ ...lead, maxWidth: '520px', margin: '0 0 10px', animation: 'eaUp .7s ease .16s both' }}>
+          <p style={{ ...lead, maxWidth: '520px', margin: '0 0 10px', animation: 'eaUp .3s ease .04s both' }}>
             A beacon of empowerment and growth for women, uplifting one another spiritually, socially, and in
             health.
           </p>
-          <div style={{ color: '#ec1c24', fontWeight: 800, letterSpacing: '.08em', fontSize: '13px', marginBottom: '30px', animation: 'eaUp .7s ease .2s both' }}>EPHESIANS 6:7</div>
-          <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', animation: 'eaUp .7s ease .24s both' }}>
+          <div style={{ color: '#ec1c24', fontWeight: 800, letterSpacing: '.08em', fontSize: '13px', marginBottom: '30px', animation: 'eaUp .3s ease .05s both' }}>EPHESIANS 6:7</div>
+          <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', animation: 'eaUp .3s ease .06s both' }}>
             <Link to="/contact" className="ea-btn-r">Join Us</Link>
             <Link to="/ministries" className="ea-btn-b">All Ministries</Link>
           </div>
@@ -82,13 +82,13 @@ export default function WomensMinistry() {
       </section>
 
       {/* ACTIVITIES BAND */}
-      <section style={{ position: 'relative', color: '#fff', backgroundImage: 'linear-gradient(135deg, rgba(18,56,76,.82), rgba(236,28,36,.62)), url(/MINISTRIES/women1.jpg)', backgroundSize: 'cover', backgroundPosition: 'center 35%' }}>
+      <section style={{ position: 'relative', color: '#fff', backgroundImage: 'linear-gradient(rgba(18,56,76,.82),rgba(18,56,76,.82)), url(/MINISTRIES/women1.jpg)', backgroundSize: 'cover', backgroundPosition: 'center 35%' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto', padding: '84px 26px', textAlign: 'center' }} data-reveal="scale">
           <span style={{ ...eyebrow, color: '#ffd6d8' }}>Fellowship &amp; growth</span>
           <h2 style={{ ...h2, color: '#fff', margin: '14px 0 22px' }}>Life together, all year round</h2>
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'center' }}>
             {ACTIVITIES.map((a) => (
-              <span key={a} style={{ background: 'rgba(255,255,255,.16)', border: '1px solid rgba(255,255,255,.3)', borderRadius: '100px', padding: '10px 22px', fontSize: '15px', fontWeight: 800 }}>{a}</span>
+              <span key={a} style={{ background: '#00adee', color: '#fff', borderRadius: '6px', padding: '10px 22px', fontSize: '15px', fontWeight: 700 }}>{a}</span>
             ))}
           </div>
         </div>
@@ -106,7 +106,7 @@ export default function WomensMinistry() {
         <div className="ea-4col" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '24px' }}>
           {MISSIONETTES.map((m, i) => (
             <Hover key={m.title} data-reveal data-reveal-delay={i * 100} style={{ ...card, textAlign: 'center', borderTop: `4px solid ${m.color}`, transition: 'transform .25s, box-shadow .25s' }} hoverStyle={{ transform: 'translateY(-7px)', boxShadow: '0 26px 50px rgba(16,80,120,.14)' }}>
-              <div style={{ width: '64px', height: '64px', margin: '0 auto 16px', borderRadius: '50%', background: m.tint, color: m.color, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Icon name={m.icon as IconName} size={28} /></div>
+              <div style={{ width: '64px', height: '64px', margin: '0 auto 16px', borderRadius: '50%', background: (m.color === '#ec1c24' ? '#ec1c24' : '#00adee'), color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Icon name={m.icon as IconName} size={28} /></div>
               <h3 style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, fontSize: '20px', color: '#12384c', margin: '0 0 6px' }}>{m.title}</h3>
               <p style={{ color: '#6b7885', fontSize: '13.5px', margin: 0 }}>{m.age}</p>
             </Hover>
@@ -123,7 +123,7 @@ export default function WomensMinistry() {
               <h2 style={{ ...h2, fontSize: '32px' }}>Groups for every woman</h2>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '22px' }}>
                 {CATEGORIES.map((c) => (
-                  <span key={c} style={{ background: '#fff', border: '1px solid #dbe8f1', color: '#33434f', fontWeight: 700, fontSize: '14px', padding: '9px 18px', borderRadius: '100px' }}>{c}</span>
+                  <span key={c} style={{ background: '#00adee', color: '#fff', fontWeight: 700, fontSize: '14px', padding: '9px 18px', borderRadius: '6px' }}>{c}</span>
                 ))}
               </div>
             </div>
@@ -133,7 +133,7 @@ export default function WomensMinistry() {
               <ul style={{ margin: '22px 0 0', padding: 0 }}>
                 {MEMBERSHIP.map((m) => (
                   <li key={m} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', listStyle: 'none', marginBottom: '14px' }}>
-                    <span style={{ width: '26px', height: '26px', flex: 'none', borderRadius: '8px', background: '#fdecec', color: '#ec1c24', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '14px' }}>&#10003;</span>
+                    <span style={{ width: '26px', height: '26px', flex: 'none', borderRadius: '8px', background: '#ec1c24', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '14px' }}>&#10003;</span>
                     <span style={{ color: '#5a6772', fontSize: '15.5px', lineHeight: 1.55 }}>{m}</span>
                   </li>
                 ))}
@@ -145,12 +145,12 @@ export default function WomensMinistry() {
 
       {/* CTA */}
       <section style={{ padding: '92px 26px 96px' }}>
-        <div data-reveal="scale" style={{ maxWidth: '1000px', margin: '0 auto', background: 'linear-gradient(135deg,#ec1c24,#ff5058)', color: '#fff', borderRadius: '28px', padding: '60px', textAlign: 'center', boxShadow: '0 30px 60px rgba(236,28,36,.24)' }}>
+        <div data-reveal="scale" style={{ maxWidth: '1000px', margin: '0 auto', background: '#ec1c24', color: '#fff', borderRadius: '28px', padding: '60px', textAlign: 'center', boxShadow: '0 30px 60px rgba(236,28,36,.24)' }}>
           <h2 style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, fontSize: '36px', margin: '0 0 14px', textWrap: 'balance' }}>You are a royal daughter</h2>
           <p style={{ color: '#ffe1e2', fontSize: '17px', maxWidth: '540px', margin: '0 auto 30px', lineHeight: 1.6 }}>Come and flourish with a sisterhood that will pray for you, grow with you, and celebrate you.</p>
           <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Hover as={Link} to="/contact" style={{ textDecoration: 'none', background: '#fff', color: '#ec1c24', fontWeight: 800, padding: '15px 32px', borderRadius: '100px', display: 'inline-block', transition: 'transform .2s' }} hoverStyle={{ transform: 'translateY(-2px)' }}>Get In Touch</Hover>
-            <Hover as={Link} to="/ministries" style={{ textDecoration: 'none', background: 'rgba(255,255,255,.16)', border: '1.7px solid rgba(255,255,255,.55)', color: '#fff', fontWeight: 800, padding: '15px 32px', borderRadius: '100px', display: 'inline-block', transition: 'background .2s' }} hoverStyle={{ background: 'rgba(255,255,255,.26)' }}>Back to Ministries</Hover>
+            <Hover as={Link} to="/contact" style={{ textDecoration: 'none', background: '#fff', color: '#ec1c24', fontWeight: 800, padding: '15px 32px', borderRadius: '6px', display: 'inline-block', transition: 'transform .2s' }} hoverStyle={{ transform: 'translateY(-2px)' }}>Get In Touch</Hover>
+            <Hover as={Link} to="/ministries" style={{ textDecoration: 'none', background: '#12384c', color: '#fff', fontWeight: 800, padding: '15px 32px', borderRadius: '6px', display: 'inline-block', transition: 'background .2s' }} hoverStyle={{ background: '#0b2a3d' }}>Back to Ministries</Hover>
           </div>
         </div>
       </section>

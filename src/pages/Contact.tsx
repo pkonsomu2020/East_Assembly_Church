@@ -50,7 +50,7 @@ export default function Contact() {
     <div style={{ fontFamily: "'Mulish',sans-serif", background: '#fff', color: '#4a5763', paddingTop: '92px' }}>
       <Nav active="contact" />
 
-      <section style={{ background: 'linear-gradient(180deg,#ffffff,#f2f9fd)', borderBottom: '1px solid #e7f0f6' }}>
+      <section style={{ background: '#f2f9fd', borderBottom: '1px solid #e7f0f6' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '76px 26px', textAlign: 'center' }}>
           <span
             style={{
@@ -58,10 +58,10 @@ export default function Contact() {
               fontWeight: 800,
               letterSpacing: '.14em',
               fontSize: '13px',
-              animation: 'eaUp .6s ease both',
+              animation: 'eaUp .3s ease both',
             }}
           >
-            WE&rsquo;D LOVE TO HEAR FROM YOU
+            REACH OUT, WE&rsquo;D LOVE TO HEAR FROM YOU
           </span>
           <h1
             style={{
@@ -71,7 +71,7 @@ export default function Contact() {
               color: '#00adee',
               margin: '14px 0 16px',
               letterSpacing: '-.02em',
-              animation: 'eaUp .7s ease .08s both',
+              animation: 'eaUp .3s ease .02s both',
             }}
           >
             Get In Touch
@@ -83,10 +83,10 @@ export default function Contact() {
               maxWidth: '600px',
               margin: '0 auto',
               lineHeight: 1.65,
-              animation: 'eaUp .7s ease .16s both',
+              animation: 'eaUp .3s ease .04s both',
             }}
           >
-            Questions, prayer requests, or just want to say hello? Reach out - because we care.
+            Whether you have a question, need prayer, or simply want to connect, we&rsquo;re here for you. Feel free to reach out using the form below or through our contact information.
           </p>
         </div>
       </section>
@@ -96,7 +96,7 @@ export default function Contact() {
           <div data-reveal="left">
             <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
               <div style={infoCard}>
-                <span style={{ ...iconBox, background: '#fdecec', color: '#ec1c24' }}><Icon name="map-pin" size={22} /></span>
+                <span style={{ ...iconBox, background: '#ec1c24', color: '#fff' }}><Icon name="map-pin" size={22} /></span>
                 <div>
                   <div style={cardTitle}>Visit Us</div>
                   <div style={{ color: '#5a6772', fontSize: '14.5px' }}>
@@ -105,7 +105,7 @@ export default function Contact() {
                 </div>
               </div>
               <div style={infoCard}>
-                <span style={{ ...iconBox, background: '#e8f7fd', color: '#0e9fd6' }}><Icon name="mail" size={22} /></span>
+                <span style={{ ...iconBox, background: '#00adee', color: '#fff' }}><Icon name="mail" size={22} /></span>
                 <div>
                   <div style={cardTitle}>Email Us</div>
                   <a href="mailto:info@eastassembly.org" style={{ color: '#0e9fd6', fontSize: '14.5px', textDecoration: 'none' }}>
@@ -114,7 +114,7 @@ export default function Contact() {
                 </div>
               </div>
               <div style={infoCard}>
-                <span style={{ ...iconBox, background: '#fdecec', color: '#ec1c24' }}><Icon name="phone" size={22} /></span>
+                <span style={{ ...iconBox, background: '#ec1c24', color: '#fff' }}><Icon name="phone" size={22} /></span>
                 <div>
                   <div style={cardTitle}>Call Us</div>
                   <a href="tel:+254721467846" style={{ color: '#0e9fd6', fontSize: '14.5px', textDecoration: 'none' }}>
@@ -123,11 +123,24 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-            <div
-              className="ea-ph"
-              data-label="[ Google map, Buruburu ]"
-              style={{ borderRadius: '20px', height: '200px', marginTop: '18px' }}
-            />
+            <div style={{ marginTop: '18px', borderRadius: '20px', overflow: 'hidden', border: '1px solid #e7f0f6', background: '#f2f9fd' }}>
+              <iframe
+                title="Map showing East Assembly KAG Buru Buru Church in Buruburu, Nairobi"
+                src="https://www.google.com/maps?q=East%20Assembly%20KAG%20Buru%20Buru%20Church%2C%20Buruburu%2C%20Nairobi%2C%20Kenya&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                style={{ display: 'block', width: '100%', height: '320px', border: 0 }}
+                allowFullScreen
+              />
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=East%20Assembly%20KAG%20Buru%20Buru%20Church%2C%20Buruburu%2C%20Nairobi%2C%20Kenya"
+                target="_blank"
+                rel="noreferrer"
+                style={{ display: 'block', textAlign: 'center', background: '#00adee', color: '#fff', fontWeight: 700, textDecoration: 'none', padding: '13px' }}
+              >
+                Open in Google Maps
+              </a>
+            </div>
           </div>
           <div
             data-reveal="right"
@@ -166,17 +179,17 @@ export default function Contact() {
                 as="button"
                 style={{
                   padding: '16px',
-                  borderRadius: '100px',
+                  borderRadius: '6px',
                   border: 'none',
-                  background: 'linear-gradient(135deg,#ec1c24,#ff5058)',
+                  background: '#ec1c24',
                   color: '#fff',
-                  fontWeight: 800,
+                  fontWeight: 700,
                   fontFamily: 'Mulish',
                   fontSize: '15.5px',
                   cursor: 'pointer',
-                  transition: 'transform .2s',
+                  transition: 'background .2s',
                 }}
-                hoverStyle={{ transform: 'translateY(-2px)' }}
+                hoverStyle={{ background: '#c4141b' }}
               >
                 Send Message
               </Hover>

@@ -4,8 +4,6 @@
    Ported from the original .dc.html design system.
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Mulish:wght@400;500;600;700&display=swap');
-
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
@@ -21,7 +19,7 @@ a { color: #ec1c24; }
 a:hover { color: #c4141b; }
 
 /* ---------------------------------------------------------------- Keyframes */
-@keyframes eaUp   { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes eaUp   { from { opacity: 1; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes eaFloat{ 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 @keyframes eaPulse{ from { opacity: 1; } to { opacity: .25; } }
 @keyframes eaBlob { 0%,100% { border-radius: 42% 58% 60% 40%/48% 42% 58% 52%; } 50% { border-radius: 58% 42% 44% 56%/54% 58% 42% 46%; } }
@@ -36,7 +34,7 @@ a:hover { color: #c4141b; }
   position: absolute;
   inset: 0;
   opacity: 0;
-  background: linear-gradient(135deg, #0b3247, #0e9fd6);
+  background: #0b3247;
   animation: eaKen 21s ease-in-out infinite;
   will-change: opacity, transform;
 }
@@ -56,7 +54,7 @@ a:hover { color: #c4141b; }
   content: "";
   position: absolute;
   inset: 0;
-  background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.06) 0 14px, transparent 14px 28px);
+  background-image: none;
 }
 .ea-dot {
   width: 9px;
@@ -69,14 +67,24 @@ a:hover { color: #c4141b; }
 }
 
 /* ------------------------------------------ Hero banner carousel (Home) */
-/* Opacity-only cross-fade (mirrors eaKen's timing without the zoom, so the
-   banners' baked-in edge text is never cropped). */
+/* Cross-fade plus a gentle, continuous zoom-out. Opacity and zoom are two
+   separate animations on the same 21s cycle: the fade is eased, the zoom is
+   linear and runs the whole time a banner is visible (1.05 down to 1), so there
+   is no start-stop at any point and the baked-in edge text is barely cropped. */
 @keyframes eaHeroFade {
   0%   { opacity: 0; }
   4%   { opacity: 1; }
   30%  { opacity: 1; }
   35%  { opacity: 0; }
   100% { opacity: 0; }
+}
+@keyframes eaHeroZoom {
+  0%   { transform: scale(1.05); }
+  35%  { transform: scale(1); }
+  100% { transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ea-hero-slide { animation-name: eaHeroFade !important; }
 }
 /* Light band so the fixed nav floats over a readable background (like every
    other page) and the banner starts BELOW the nav instead of behind it. */
@@ -103,14 +111,14 @@ a:hover { color: #c4141b; }
   height: 100%;
   object-fit: contain;
   opacity: 0;
-  animation: eaHeroFade 21s ease-in-out infinite;
-  will-change: opacity;
+  animation: eaHeroFade 21s ease-in-out infinite, eaHeroZoom 21s linear infinite;
+  will-change: opacity, transform;
 }
 
 /* ---------------------------------------- Image placeholder ("[ ... ]") */
 .ea-ph {
   position: relative;
-  background: linear-gradient(135deg, #e6f0f8, #d5e7f3);
+  background: #f2f9fd;
   overflow: hidden;
 }
 .ea-ph::after {
@@ -130,41 +138,30 @@ a:hover { color: #c4141b; }
   content: "";
   position: absolute;
   inset: 0;
-  background-image: repeating-linear-gradient(45deg, rgba(11,123,176,.05) 0 12px, transparent 12px 24px);
+  background-image: none;
 }
 /* Dark variant (LiveStream video / Home quote portrait) */
-.ea-ph.ea-ph-dark { background: linear-gradient(135deg, #0b3247, #0e9fd6); }
+.ea-ph.ea-ph-dark { background: #0b3247; }
 .ea-ph.ea-ph-dark::after { color: rgba(255,255,255,.6); background: rgba(0,0,0,.25); }
-.ea-ph.ea-ph-dark::before { background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.05) 0 12px, transparent 12px 24px); }
+.ea-ph.ea-ph-dark::before { background-image: none; }
 
 /* --------------------------------------------------------- Pill buttons */
-.ea-btn-r {
-  text-decoration: none;
-  color: #ec1c24;
-  font-weight: 800;
-  padding: 15px 30px;
-  border-radius: 100px;
-  background: #fdecec;
-  border: 1.7px solid #f6b9bc;
-  display: inline-block;
-  transition: all .25s;
-  font-size: 15.5px;
-}
-.ea-btn-r:hover { background: #ec1c24; color: #fff; border-color: #ec1c24; transform: translateY(-2px); }
-
+.ea-btn-r,
 .ea-btn-b {
   text-decoration: none;
-  color: #0e9fd6;
-  font-weight: 800;
-  padding: 15px 30px;
-  border-radius: 100px;
-  background: #e8f7fd;
-  border: 1.7px solid #b9e6f7;
+  color: #fff;
+  font-weight: 700;
+  padding: 13px 28px;
+  border-radius: 6px;
+  border: none;
   display: inline-block;
-  transition: all .25s;
+  transition: background .2s;
   font-size: 15.5px;
 }
-.ea-btn-b:hover { background: #00adee; color: #fff; border-color: #00adee; transform: translateY(-2px); }
+.ea-btn-r { background: #ec1c24; }
+.ea-btn-r:hover { background: #c4141b; }
+.ea-btn-b { background: #00adee; }
+.ea-btn-b:hover { background: #0b8fc4; }
 
 /* --------------------------------------------------- Responsive helpers */
 @media (max-width: 1080px) { .ea-desk { display: none !important; } .ea-burger { display: flex !important; } }
@@ -192,4 +189,51 @@ a:hover { color: #c4141b; }
 }
 @media (max-width: 480px) {
   .ea-frow { flex-direction: column !important; }
+}
+
+/* ------------------------------------------- Youth / Teens: scrolling band */
+.ea-marquee { overflow: hidden; white-space: nowrap; }
+.ea-marquee-track { display: inline-flex; animation: eaMarquee 30s linear infinite; }
+@keyframes eaMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .ea-marquee-track { animation: none; } }
+
+/* --------------------------------------------- Media ministry: level meter */
+.ea-meter { display: flex; align-items: flex-end; gap: 5px; height: 48px; }
+.ea-meter span { flex: 1; background: #00adee; transform-origin: bottom; animation: eaMeter .9s ease-in-out infinite alternate; }
+.ea-meter span:nth-child(3n) { background: #ec1c24; }
+@keyframes eaMeter { from { transform: scaleY(.15); } to { transform: scaleY(1); } }
+@media (prefers-reduced-motion: reduce) { .ea-meter span { animation: none; transform: scaleY(.6); } }
+
+/* ----------------------------------------------------- Music ministry: vinyl */
+.ea-spin { animation: eaSpin 16s linear infinite; }
+@keyframes eaSpin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .ea-spin { animation: none; } }
+@keyframes eaPop { 0% { opacity: 0; transform: scale(.86) translateY(24px); } 60% { opacity: 1; transform: scale(1.03) translateY(-4px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
+.ea-pop { animation: eaPop .45s cubic-bezier(.2,.8,.2,1) .05s both; }
+@media (prefers-reduced-motion: reduce) { .ea-pop { animation: none; } }
+
+/* --------------------------------------------- Children's ministry: playful */
+.ea-float { animation: eaFloat 4.5s ease-in-out infinite; }
+.ea-drift { animation: eaDrift 18s ease-in-out infinite alternate; }
+.ea-bounce { animation: eaBounce 1.6s ease-in-out infinite; }
+@keyframes eaFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@keyframes eaDrift { from { transform: translateX(-4%); } to { transform: translateX(6%); } }
+@keyframes eaBounce { 0%, 100% { transform: translateY(0); } 40% { transform: translateY(-14px); } 60% { transform: translateY(-14px); } }
+@media (prefers-reduced-motion: reduce) { .ea-float, .ea-drift, .ea-bounce { animation: none; } }
+
+/* ------------------------------------------------ Ministries directory grid */
+.ea-mcard .ea-mimg { transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.ea-mcard:hover .ea-mimg { transform: scale(1.06); }
+.ea-mcard .ea-mtab { transition: transform .25s; }
+.ea-mcard:hover .ea-mtab { transform: translateY(-4px); }
+@media (min-width: 961px) { .ea-mgrid > :nth-child(3n+2) { margin-top: 48px; } }
+@media (max-width: 960px) { .ea-hide-md { display: none !important; } }
+
+/* ------------------------------------------------ Rendering performance */
+/* Skip layout and paint for sections far below the first screen until they
+   are close to being scrolled into view. The first two sections (the ones
+   visible on arrival) are left alone. */
+section ~ section ~ section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 700px;
 }

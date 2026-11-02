@@ -141,9 +141,9 @@ export default function DiscipleshipMinistry() {
       <Nav active="ministries" />
 
       {/* HERO */}
-      <section style={{ background: 'linear-gradient(180deg,#ffffff,#f2f9fd)', borderBottom: '1px solid #e7f0f6' }}>
+      <section style={{ background: '#f2f9fd', borderBottom: '1px solid #e7f0f6' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto', padding: '76px 26px', textAlign: 'center' }}>
-          <span style={{ ...eyebrow, animation: 'eaUp .6s ease both' }}>DISCIPLESHIP MINISTRY</span>
+          <span style={{ ...eyebrow, animation: 'eaUp .3s ease both' }}>DISCIPLESHIP MINISTRY</span>
           <h1
             style={{
               fontFamily: "'Plus Jakarta Sans'",
@@ -153,7 +153,7 @@ export default function DiscipleshipMinistry() {
               margin: '14px 0 14px',
               letterSpacing: '-.02em',
               lineHeight: 1.05,
-              animation: 'eaUp .7s ease .08s both',
+              animation: 'eaUp .3s ease .02s both',
             }}
           >
             Equipping The Saints
@@ -163,24 +163,23 @@ export default function DiscipleshipMinistry() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              background: '#fdecec',
-              border: '1px solid #f6b9bc',
-              color: '#ec1c24',
+              background: '#ec1c24',
+              color: '#fff',
               padding: '8px 16px',
-              borderRadius: '100px',
+              borderRadius: '6px',
               fontSize: '12.5px',
               fontWeight: 800,
               letterSpacing: '.05em',
-              animation: 'eaUp .7s ease .12s both',
+              animation: 'eaUp .3s ease .03s both',
             }}
           >
             ETS · EPHESIANS 4:11&ndash;12
           </div>
-          <p style={{ ...lead, fontSize: '18px', maxWidth: '640px', margin: '22px auto 32px', animation: 'eaUp .7s ease .16s both' }}>
+          <p style={{ ...lead, fontSize: '18px', maxWidth: '640px', margin: '22px auto 32px', animation: 'eaUp .3s ease .04s both' }}>
             A worldwide, scripture-based discipleship training program that equips believers to fulfil
             Christ&rsquo;s Great Commission: &ldquo;go and make disciples of all nations.&rdquo;
           </p>
-          <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap', animation: 'eaUp .7s ease .24s both' }}>
+          <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap', animation: 'eaUp .3s ease .06s both' }}>
             <Link to="/contact" className="ea-btn-r">Join a Discipleship Class</Link>
             <Link to="/ministries" className="ea-btn-b">All Ministries</Link>
           </div>
@@ -256,7 +255,7 @@ export default function DiscipleshipMinistry() {
         <div className="ea-3col" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '24px' }}>
           {[
             {
-              icon: 'sparkles',
+              icon: 'compass',
               tint: '#fdecec',
               color: '#ec1c24',
               title: 'Our Purpose',
@@ -283,8 +282,8 @@ export default function DiscipleshipMinistry() {
                   width: '56px',
                   height: '56px',
                   borderRadius: '16px',
-                  background: c.tint,
-                  color: c.color,
+                  background: (c.color === '#ec1c24' ? '#ec1c24' : '#00adee'),
+                  color: '#fff',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -359,7 +358,7 @@ export default function DiscipleshipMinistry() {
                     width: '54px',
                     height: '54px',
                     borderRadius: '15px',
-                    background: 'linear-gradient(135deg,#00adee,#0b7bb0)',
+                    background: '#00adee',
                     color: '#fff',
                     display: 'flex',
                     alignItems: 'center',
@@ -386,13 +385,12 @@ export default function DiscipleshipMinistry() {
                   alignItems: 'center',
                   gap: '7px',
                   alignSelf: 'flex-start',
-                  background: '#f2f9fd',
-                  border: '1px solid #dbeaf4',
-                  color: '#0b7bb0',
+                  background: '#00adee',
+                  color: '#fff',
                   fontSize: '13px',
                   fontWeight: 700,
                   padding: '7px 14px',
-                  borderRadius: '100px',
+                  borderRadius: '6px',
                   marginBottom: '20px',
                 }}
               >
@@ -466,8 +464,8 @@ export default function DiscipleshipMinistry() {
                     width: '52px',
                     height: '52px',
                     borderRadius: '14px',
-                    background: '#e8f7fd',
-                    color: '#0e9fd6',
+                    background: '#00adee',
+                    color: '#fff',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -490,61 +488,6 @@ export default function DiscipleshipMinistry() {
         </div>
       </section>
 
-      {/* FOUNDER */}
-      <section style={{ maxWidth: '1100px', margin: '0 auto', padding: '88px 26px' }}>
-        <div
-          data-reveal="scale"
-          className="ea-2col"
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '.8fr 1.2fr',
-            background: '#fff',
-            border: '1px solid #e7f0f6',
-            borderRadius: '26px',
-            overflow: 'hidden',
-            boxShadow: '0 22px 54px rgba(16,80,120,.1)',
-          }}
-        >
-          <div
-            style={{
-              minHeight: '360px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              background: 'linear-gradient(135deg,#0b3247,#0e9fd6)',
-              color: '#fff',
-              textAlign: 'center',
-              padding: '32px',
-            }}
-          >
-            <div>
-              <div style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, fontSize: '52px', lineHeight: 1 }}>DD</div>
-              <div style={{ marginTop: '12px', fontWeight: 800, letterSpacing: '.12em', fontSize: '13px', color: '#cdeafd' }}>
-                FOUNDER OF ETS
-              </div>
-              <div style={{ marginTop: '4px', fontSize: '13px', color: '#9fd3f2' }}>Home &amp; overseas missionary &middot; d. 2020</div>
-            </div>
-          </div>
-          <div style={{ padding: '48px 44px' }}>
-            <span style={eyebrow}>FOUNDER</span>
-            <h2 style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, fontSize: '32px', color: '#12384c', margin: '10px 0 6px' }}>
-              Dave Dawson
-            </h2>
-            <p style={{ ...lead, margin: '16px 0 0' }}>
-              For nearly forty years Dave Dawson devoted himself to training lay people for ministry. He
-              taught at Denver Conservative Baptist Seminary, Dallas Bible College, and Southwestern Baptist
-              Theological Seminary, and served as National Director for The Navigators in Singapore for twelve
-              years, travelling extensively across America, Asia, Europe, the Eastern Bloc, and Africa.
-            </p>
-            <p style={{ ...lead, margin: '14px 0 0' }}>
-              ETS was introduced in Kenya on 7&nbsp;August&nbsp;2008 through the first conference held at East
-              Assembly Church. Dave visited Kenya for the 2018 ETS Anniversary conference and went home to be
-              with the Lord in 2020. His legacy of disciple-making lives on.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section style={{ padding: '0 26px 96px' }}>
         <div
@@ -552,7 +495,7 @@ export default function DiscipleshipMinistry() {
           style={{
             maxWidth: '1000px',
             margin: '0 auto',
-            background: 'linear-gradient(135deg,#00adee,#0b7bb0)',
+            background: '#00adee',
             color: '#fff',
             borderRadius: '28px',
             padding: '60px',
@@ -576,7 +519,7 @@ export default function DiscipleshipMinistry() {
                 color: '#0b7bb0',
                 fontWeight: 800,
                 padding: '15px 32px',
-                borderRadius: '100px',
+                borderRadius: '6px',
                 display: 'inline-block',
                 transition: 'transform .2s',
               }}
@@ -589,16 +532,15 @@ export default function DiscipleshipMinistry() {
               to="/ministries"
               style={{
                 textDecoration: 'none',
-                background: 'rgba(255,255,255,.16)',
-                border: '1.7px solid rgba(255,255,255,.5)',
+                background: '#12384c',
                 color: '#fff',
                 fontWeight: 800,
                 padding: '15px 32px',
-                borderRadius: '100px',
+                borderRadius: '6px',
                 display: 'inline-block',
                 transition: 'background .2s',
               }}
-              hoverStyle={{ background: 'rgba(255,255,255,.26)' }}
+              hoverStyle={{ background: '#0b2a3d' }}
             >
               Back to Ministries
             </Hover>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import { Hover } from '../components/Hover'
-import { Icon } from '../components/Icon'
+import { Icon, type IconName } from '../components/Icon'
 import { EventCard } from '../components/EventCard'
 import { useMotion } from '../hooks/useMotion'
 import { upcomingEvents } from '../data/events'
@@ -31,20 +31,22 @@ export default function Home() {
         <div className="ea-hero">
           <img
             className="ea-hero-slide"
-            style={{ animationDelay: '0s' }}
-            src="/HERO/EAST%20ASSEMBLY%20HOME%20WEBSITE%20BANNER%20MAIN%20SERVICES.png"
+            fetchPriority="high"
+            decoding="async"
+            style={{ animationDelay: '-1.2s' }}
+            src="/HERO/EAST%20ASSEMBLY%20HOME%20WEBSITE%20BANNER%20MAIN%20SERVICES.webp"
             alt="Worship Services: First Service 8:00 to 9:30 AM, Second Service 10:30 AM to 12:30 PM"
           />
           <img
             className="ea-hero-slide"
-            style={{ animationDelay: '-7s' }}
-            src="/HERO/EAST%20ASSEMBLY%20HOME%20WEBSITE%20BANNER%20YOUTH%20AND%20TEENS%20SERVICES.png"
+            style={{ animationDelay: '-8.2s' }}
+            src="/HERO/EAST%20ASSEMBLY%20HOME%20WEBSITE%20BANNER%20YOUTH%20AND%20TEENS%20SERVICES.webp"
             alt="Youth and Teens Services at East Assembly Church"
           />
           <img
             className="ea-hero-slide"
-            style={{ animationDelay: '-14s' }}
-            src="/HERO/EAST%20ASSEMBLY%20HOME%20WEBSITE%20BANNER%20TUESDAY%20EVENING%20SERVICE.png"
+            style={{ animationDelay: '-15.2s' }}
+            src="/HERO/EAST%20ASSEMBLY%20HOME%20WEBSITE%20BANNER%20TUESDAY%20EVENING%20SERVICE.webp"
             alt="Tuesday Evening Service at East Assembly Church"
           />
           <div
@@ -59,9 +61,9 @@ export default function Home() {
               alignItems: 'center',
             }}
           >
-            <span className="ea-dot" style={{ animationDelay: '0s' }} />
-            <span className="ea-dot" style={{ animationDelay: '-7s' }} />
-            <span className="ea-dot" style={{ animationDelay: '-14s' }} />
+            <span className="ea-dot" style={{ animationDelay: '-1.2s' }} />
+            <span className="ea-dot" style={{ animationDelay: '-8.2s' }} />
+            <span className="ea-dot" style={{ animationDelay: '-15.2s' }} />
           </div>
         </div>
       </section>
@@ -98,7 +100,7 @@ export default function Home() {
                   width: '52px',
                   height: '52px',
                   borderRadius: '15px',
-                  background: 'linear-gradient(135deg,#ec1c24,#ff5058)',
+                  background: '#ec1c24',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -135,21 +137,23 @@ export default function Home() {
               A community passionate about loving God &amp; people
             </h2>
             <p style={{ fontSize: '17px', lineHeight: 1.72, color: '#5a6772', margin: '0 0 18px' }}>
-              East Assembly - KAG Buru Buru Church is a dynamic community of believers who are
-              passionate about loving God, loving people, and making a positive impact in our world.
+              We are a family of believers dedicated to impacting the world with the Gospel of Jesus
+              Christ through love and discipleship. We are delighted to have you engage with us here
+              as we worship, grow, and serve together.
             </p>
             <p style={{ fontSize: '17px', lineHeight: 1.72, color: '#5a6772', margin: '0 0 30px' }}>
-              We foster a welcoming environment where individuals can grow in their faith, build
-              meaningful relationships, and discover their God-given purpose.
+              East Assembly Church is a dynamic community of believers who are passionate about loving
+              God, loving people, and making a positive impact in our world. Our church family is
+              committed to fostering a welcoming environment where individuals can grow in their faith,
+              build meaningful relationships, and discover their God-given purpose.
             </p>
             <div style={{ display: 'flex', gap: '38px', marginBottom: '32px', flexWrap: 'wrap' }}>
               <div>
                 <div
-                  data-count="14"
-                  data-suffix="+"
+                  data-count="13"
                   style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, fontSize: '36px', color: '#00adee' }}
                 >
-                  14+
+                  13
                 </div>
                 <div style={{ color: '#6b7885', fontSize: '14px', fontWeight: 600 }}>Ministries</div>
               </div>
@@ -205,15 +209,16 @@ export default function Home() {
               Find your place to grow &amp; serve
             </h2>
             <p style={{ fontSize: '17px', lineHeight: 1.65, color: '#5a6772', margin: 0 }}>
-              From children&rsquo;s programs to adult Bible studies, there&rsquo;s something for
-              everyone at East Assembly.
+              Explore the various ministries at East Assembly Church designed to help you grow
+              spiritually, connect with others, and serve our community. From children&rsquo;s programs
+              to adult Bible studies, there&rsquo;s something for everyone.
             </p>
           </div>
           <div className="ea-3col" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '26px' }}>
             {[
-              { img: '/youth-ministry.jpg', title: 'Youth Ministry', desc: 'Empowering young hearts with faith, fellowship, and fun. Join us as we grow in Christ together!', delay: '0' },
-              { img: '/music-ministry.jpeg', title: 'Music Ministry', desc: 'Bringing heavenly melodies to our worship, glorifying God through harmonious praise.', delay: '120' },
-              { img: '/Descipleship-img.jpg', title: 'Discipleship Ministry', desc: 'Growing in faith, knowledge, and love, equipping believers to live out their faith boldly.', delay: '240' },
+              { img: '/thumbs/youth-ministry.jpg', title: 'Youth Ministry', desc: 'Empowering young hearts with faith, fellowship, and fun. Join us as we grow in Christ together!', delay: '0' },
+              { img: '/thumbs/music-ministry.jpeg', title: 'Music Ministry', desc: 'Bringing heavenly melodies to our worship, our Music Ministry glorifies God through harmonious praise.', delay: '120' },
+              { img: '/thumbs/Descipleship-img.jpg', title: 'Discipleship Ministry', desc: 'Growing in faith, knowledge, and love. Our Discipleship Ministry equips believers to live out their faith boldly.', delay: '240' },
             ].map((m) => (
               <Hover
                 key={m.title}
@@ -247,6 +252,39 @@ export default function Home() {
           <div style={{ textAlign: 'center', marginTop: '46px' }} data-reveal>
             <Link to="/ministries" className="ea-btn-b">View All Ministries</Link>
           </div>
+        </div>
+      </section>
+
+      {/* JOIN US FOR WORSHIP */}
+      <section style={{ maxWidth: '1260px', margin: '0 auto', padding: '96px 26px 0' }}>
+        <div style={{ textAlign: 'center', maxWidth: '680px', margin: '0 auto 48px' }} data-reveal>
+          <span style={{ color: '#ec1c24', fontWeight: 800, letterSpacing: '.14em', fontSize: '13px' }}>WORSHIP WITH US</span>
+          <h2 style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, fontSize: '42px', margin: '14px 0 16px', letterSpacing: '-.01em', color: '#12384c', textWrap: 'balance' }}>
+            Join Us for Worship
+          </h2>
+          <p style={{ fontSize: '17px', lineHeight: 1.65, color: '#5a6772', margin: 0 }}>
+            Explore our weekly worship services and fellowship opportunities. We invite you to join us as we gather to
+            praise, learn, and grow together in faith.
+          </p>
+        </div>
+        <div className="ea-4col" style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: '18px' }}>
+          {[
+            { name: '1st Service', time: '8.00am - 9.30am' },
+            { name: 'Youth Service', time: '9.00am - 10.30am' },
+            { name: 'Main Service', time: '10.30am - 12.30pm' },
+            { name: 'Teen Service', time: '10.30am - 12.30pm' },
+            { name: 'Children’s Service', time: '10.30am - 12.30pm' },
+          ].map((s, i) => (
+            <div
+              key={s.name}
+              data-reveal
+              data-reveal-delay={i * 80}
+              style={{ background: '#fff', border: '1px solid #e7f0f6', borderRadius: '20px', padding: '26px 18px', textAlign: 'center', boxShadow: '0 8px 24px rgba(16,80,120,.06)' }}
+            >
+              <h3 style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, fontSize: '18px', color: '#12384c', margin: '0 0 8px' }}>{s.name}</h3>
+              <div style={{ color: '#0e9fd6', fontWeight: 800, fontSize: '15px' }}>{s.time}</div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -311,8 +349,8 @@ export default function Home() {
       </section>
 
       {/* CONNECT WITH US */}
-      <section style={{ maxWidth: '1260px', margin: '0 auto', padding: '96px 26px' }}>
-        <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 52px' }} data-reveal>
+      <section style={{ maxWidth: '1000px', margin: '0 auto', padding: '96px 26px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '40px' }} data-reveal>
           <span style={{ color: '#ec1c24', fontWeight: 800, letterSpacing: '.14em', fontSize: '13px' }}>TAKE A STEP</span>
           <h2
             style={{
@@ -327,49 +365,53 @@ export default function Home() {
             Connect With Us
           </h2>
         </div>
-        <div className="ea-4col" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '22px' }}>
+        <div
+          data-reveal
+          style={{ background: '#f2f9fd', border: '1px solid #e7f0f6', borderRadius: '20px', padding: '6px 28px' }}
+        >
           {[
-            { to: '/im-new', img: '/decide-img.jpg', title: 'I Have Decided', sub: 'Give your life to Jesus', cta: 'Connect', delay: '0' },
-            { to: '/im-new', img: '/welcome-bg.jpeg', title: 'Karibu', sub: 'We’re glad you’re here', cta: 'Connect', delay: '100' },
-            { to: '/ministries', img: '/community-img.jpg', title: 'Connect', sub: 'Find a community with us', cta: 'Connect', delay: '200' },
-            { to: '/contact', img: '/prayer-img.jpg', title: 'Prayer / Testimony', sub: 'Share with us', cta: 'Share', delay: '300' },
-          ].map((c) => (
+            { to: '/im-new', icon: 'cross', title: 'I Have Decided', sub: 'Give your life to Jesus' },
+            { to: '/im-new', icon: 'handshake', title: 'Karibu', sub: 'New here? We’re glad you’re here' },
+            { to: '/ministries', icon: 'users', title: 'Connect', sub: 'Find a community with us' },
+            { to: '/contact', icon: 'pray', title: 'Prayer / Testimony', sub: 'Share with us' },
+          ].map((c, i, all) => (
             <Hover
               key={c.title}
               as={Link}
               to={c.to}
-              role="img"
-              aria-label={c.title}
-              data-reveal
-              data-reveal-delay={c.delay}
               style={{
                 textDecoration: 'none',
-                position: 'relative',
-                borderRadius: '22px',
-                overflow: 'hidden',
-                aspectRatio: '3/4',
                 display: 'flex',
-                alignItems: 'flex-end',
-                transition: 'transform .25s',
-                ...bg(c.img),
+                alignItems: 'center',
+                gap: '18px',
+                padding: '22px 4px',
+                borderBottom: i < all.length - 1 ? '1px solid #dbe8f1' : 'none',
+                transition: 'padding-left .2s',
               }}
-              hoverStyle={{ transform: 'translateY(-6px)' }}
+              hoverStyle={{ paddingLeft: '12px' }}
             >
-              <div
+              <span
                 style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: 'linear-gradient(180deg,transparent 42%,rgba(18,56,76,.9))',
-                  zIndex: 1,
+                  width: '46px',
+                  height: '46px',
+                  borderRadius: '12px',
+                  background: '#fff',
+                  color: '#ec1c24',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flex: 'none',
                 }}
-              />
-              <div style={{ position: 'relative', zIndex: 2, padding: '24px', color: '#fff' }}>
-                <h3 style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, fontSize: '20px', margin: '0 0 6px' }}>
+              >
+                <Icon name={c.icon as IconName} size={22} />
+              </span>
+              <span style={{ flex: 1 }}>
+                <span style={{ display: 'block', fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, fontSize: '19px', color: '#12384c' }}>
                   {c.title}
-                </h3>
-                <p style={{ color: '#dbe7f0', fontSize: '14px', margin: '0 0 12px' }}>{c.sub}</p>
-                <span style={{ color: '#ff9ea2', fontWeight: 800, fontSize: '14px' }}>{c.cta} &rarr;</span>
-              </div>
+                </span>
+                <span style={{ display: 'block', color: '#5a6772', fontSize: '15px', marginTop: '3px' }}>{c.sub}</span>
+              </span>
+              <span style={{ color: '#ec1c24', fontWeight: 800, fontSize: '22px' }}>&rsaquo;</span>
             </Hover>
           ))}
         </div>
@@ -451,8 +493,8 @@ export default function Home() {
                 width: '54px',
                 height: '54px',
                 borderRadius: '15px',
-                background: '#fdecec',
-                color: '#ec1c24',
+                background: '#ec1c24',
+                color: '#fff',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -493,8 +535,8 @@ export default function Home() {
                 width: '54px',
                 height: '54px',
                 borderRadius: '15px',
-                background: '#e8f7fd',
-                color: '#0e9fd6',
+                background: '#00adee',
+                color: '#fff',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -534,8 +576,8 @@ export default function Home() {
                 width: '54px',
                 height: '54px',
                 borderRadius: '15px',
-                background: '#fdecec',
-                color: '#ec1c24',
+                background: '#ec1c24',
+                color: '#fff',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',

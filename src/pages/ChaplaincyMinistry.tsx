@@ -59,7 +59,7 @@ export default function ChaplaincyMinistry() {
       <section className="ea-2col" style={{ display: 'grid', gridTemplateColumns: '.95fr 1.05fr', minHeight: '580px' }}>
         <div role="img" aria-label="A chaplain comforting a grieving member" style={{ minHeight: '340px', ...bg('/MINISTRIES/chaplaincy1.jpeg', 'center') }} />
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '150px 6% 70px', background: '#f2f9fd' }}>
-          <span style={{ ...eyebrow, animation: 'eaUp .6s ease both' }}>Chaplaincy Ministry</span>
+          <span style={{ ...eyebrow, animation: 'eaUp .3s ease both' }}>Chaplaincy Ministry</span>
           <h1
             style={{
               fontFamily: "'Plus Jakarta Sans'",
@@ -70,16 +70,16 @@ export default function ChaplaincyMinistry() {
               color: '#12384c',
               margin: '16px 0 20px',
               textWrap: 'balance',
-              animation: 'eaUp .7s ease .08s both',
+              animation: 'eaUp .3s ease .02s both',
             }}
           >
             Comfort and support in times of need
           </h1>
-          <p style={{ ...lead, maxWidth: '520px', margin: '0 0 22px', animation: 'eaUp .7s ease .16s both' }}>
+          <p style={{ ...lead, maxWidth: '520px', margin: '0 0 22px', animation: 'eaUp .3s ease .04s both' }}>
             For 39 years, the Chaplaincy Ministry has been a beacon of hope, led by Rev. Chaplain Margaret
             Kihoro, offering hospital visits, home care, grief counseling, and practical support.
           </p>
-          <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', alignItems: 'center', animation: 'eaUp .7s ease .24s both' }}>
+          <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', alignItems: 'center', animation: 'eaUp .3s ease .06s both' }}>
             <Link to="/contact" className="ea-btn-r">Request Support</Link>
             <Link to="/ministries" className="ea-btn-b">All Ministries</Link>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#0e9fd6', fontWeight: 800, fontSize: '14px' }}>
@@ -104,7 +104,7 @@ export default function ChaplaincyMinistry() {
               style={{ ...card, transition: 'transform .25s, box-shadow .25s' }}
               hoverStyle={{ transform: 'translateY(-7px)', boxShadow: '0 26px 50px rgba(16,80,120,.14)' }}
             >
-              <span style={{ width: '54px', height: '54px', borderRadius: '15px', background: '#e8f7fd', color: '#0e9fd6', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '18px' }}><Icon name={s.icon as IconName} size={24} /></span>
+              <span style={{ width: '54px', height: '54px', borderRadius: '15px', background: '#00adee', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '18px' }}><Icon name={s.icon as IconName} size={24} /></span>
               <h3 style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, fontSize: '18px', color: '#12384c', margin: '0 0 10px' }}>{s.title}</h3>
               <p style={{ color: '#5a6772', lineHeight: 1.6, fontSize: '14.5px', margin: 0 }}>{s.text}</p>
             </Hover>
@@ -147,7 +147,7 @@ export default function ChaplaincyMinistry() {
             </p>
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '16px' }}>
               {['Thursday', 'Friday', 'Saturday'].map((d) => (
-                <span key={d} style={{ background: '#fdecec', color: '#ec1c24', fontWeight: 800, fontSize: '14px', padding: '9px 18px', borderRadius: '100px' }}>{d}</span>
+                <span key={d} style={{ background: '#ec1c24', color: '#fff', fontWeight: 700, fontSize: '14px', padding: '9px 18px', borderRadius: '6px' }}>{d}</span>
               ))}
             </div>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#0e9fd6', fontWeight: 700, fontSize: '14.5px' }}>
@@ -167,7 +167,7 @@ export default function ChaplaincyMinistry() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '22px' }}>
                 {INSTITUTIONS.map((n) => (
                   <div key={n} style={{ display: 'flex', alignItems: 'center', gap: '14px', background: '#fff', border: '1px solid #e7f0f6', borderRadius: '16px', padding: '18px 22px' }}>
-                    <span style={{ width: '40px', height: '40px', flex: 'none', borderRadius: '11px', background: '#e8f7fd', color: '#0e9fd6', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Icon name="plus-square" size={20} /></span>
+                    <span style={{ width: '40px', height: '40px', flex: 'none', borderRadius: '11px', background: '#00adee', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Icon name="plus-square" size={20} /></span>
                     <span style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 700, color: '#12384c', fontSize: '16px' }}>{n}</span>
                   </div>
                 ))}
@@ -179,7 +179,7 @@ export default function ChaplaincyMinistry() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '22px' }}>
                 {LEADERS.map((l) => (
                   <div key={l.name} style={{ display: 'flex', alignItems: 'center', gap: '16px', background: '#fff', border: '1px solid #e7f0f6', borderRadius: '18px', padding: '20px 22px' }}>
-                    <span style={{ width: '54px', height: '54px', flex: 'none', borderRadius: '50%', background: 'linear-gradient(135deg,#ec1c24,#ff5058)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Plus Jakarta Sans'", fontWeight: 800 }}>{l.initials}</span>
+                    <span style={{ width: '54px', height: '54px', flex: 'none', borderRadius: '50%', background: '#ec1c24', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Plus Jakarta Sans'", fontWeight: 800 }}>{l.initials}</span>
                     <div>
                       <div style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, color: '#12384c', fontSize: '16px' }}>{l.name}</div>
                       <div style={{ color: '#6b7885', fontSize: '13.5px', marginTop: '2px' }}>{l.role}</div>
@@ -199,7 +199,7 @@ export default function ChaplaincyMinistry() {
           style={{
             maxWidth: '1000px',
             margin: '0 auto',
-            background: 'linear-gradient(135deg,#00adee,#0b7bb0)',
+            background: '#00adee',
             color: '#fff',
             borderRadius: '28px',
             padding: '60px',
@@ -214,10 +214,10 @@ export default function ChaplaincyMinistry() {
             Our chaplaincy team is here to walk with you and your loved ones. Reach out any time, we care.
           </p>
           <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Hover as={Link} to="/contact" style={{ textDecoration: 'none', background: '#fff', color: '#0b7bb0', fontWeight: 800, padding: '15px 32px', borderRadius: '100px', display: 'inline-block', transition: 'transform .2s' }} hoverStyle={{ transform: 'translateY(-2px)' }}>
+            <Hover as={Link} to="/contact" style={{ textDecoration: 'none', background: '#fff', color: '#0b7bb0', fontWeight: 800, padding: '15px 32px', borderRadius: '6px', display: 'inline-block', transition: 'transform .2s' }} hoverStyle={{ transform: 'translateY(-2px)' }}>
               Contact the Team
             </Hover>
-            <Hover as={Link} to="/ministries" style={{ textDecoration: 'none', background: 'rgba(255,255,255,.16)', border: '1.7px solid rgba(255,255,255,.55)', color: '#fff', fontWeight: 800, padding: '15px 32px', borderRadius: '100px', display: 'inline-block', transition: 'background .2s' }} hoverStyle={{ background: 'rgba(255,255,255,.26)' }}>
+            <Hover as={Link} to="/ministries" style={{ textDecoration: 'none', background: '#12384c', color: '#fff', fontWeight: 800, padding: '15px 32px', borderRadius: '6px', display: 'inline-block', transition: 'background .2s' }} hoverStyle={{ background: '#0b2a3d' }}>
               Back to Ministries
             </Hover>
           </div>

@@ -15,6 +15,7 @@ export type IconName =
   | 'target' | 'trending-up' | 'check' | 'globe' | 'compass' | 'flower' | 'shield'
   | 'palette' | 'clipboard' | 'play' | 'church' | 'bread' | 'phone' | 'chat'
   | 'landmark' | 'lock' | 'mail' | 'map-pin'
+  | 'flag' | 'eye' | 'sun'
   | 'facebook' | 'youtube' | 'instagram'
 
 const P: Record<IconName, ReactNode> = {
@@ -55,6 +56,9 @@ const P: Record<IconName, ReactNode> = {
   megaphone: (<><path d="M3 11v2a1 1 0 0 0 1 1h2l9 5V5L6 10H4a1 1 0 0 0-1 1z" /><path d="M18 8.5a4 4 0 0 1 0 7" /></>),
   star: (<path d="m12 3 2.6 5.6 6 .8-4.4 4.2 1.1 6-5.3-3-5.3 3 1.1-6L3.4 9.4l6-.8z" />),
   sparkles: (<><path d="m12 3 1.6 4.6L18 9.2l-4.4 1.6L12 15.4l-1.6-4.6L6 9.2l4.4-1.6z" /><path d="m18 14 .8 2.2 2.2.8-2.2.8L18 20l-.8-2.2-2.2-.8 2.2-.8z" /></>),
+  flag: (<><path d="M5 21V4" /><path d="M5 4h13l-3 4.5 3 4.5H5" /></>),
+  eye: (<><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" /><circle cx="12" cy="12" r="3" /></>),
+  sun: (<><circle cx="12" cy="12" r="4" /><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" /></>),
   target: (<><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1.5" /></>),
   'trending-up': (<><path d="M3 17 9 11l4 4 8-8" /><path d="M17 7h4v4" /></>),
   check: (<path d="M20 6 9 17l-5-5" />),

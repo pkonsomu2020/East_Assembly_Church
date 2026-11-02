@@ -13,7 +13,7 @@ const bg = (src: string, position = 'center'): CSSProperties => ({ backgroundIma
 
 const TIMES = [
   { icon: 'laptop', title: 'Morning Prayer (Zoom)', time: '6:00 - 6:30 AM', note: 'Daily, in one accord online' },
-  { icon: 'sunrise', title: 'Physical Morning Prayer', time: '6:00 - 7:00 AM', note: 'Gathering at the church' },
+  { icon: 'sunrise', title: 'Physical Morning Glory', time: '6:00 - 7:00 AM', note: 'Gathering at the church' },
   { icon: 'flame', title: 'Tuesday Evening Prayer', time: '6:00 - 7:30 PM', note: 'Midweek intercession' },
   { icon: 'utensils', title: 'Prayer & Fasting Week', time: 'Monthly', note: 'At the beginning of each month' },
 ]
@@ -25,19 +25,19 @@ export default function PrayerMinistry() {
       <Nav active="ministries" />
 
       {/* HERO - full image */}
-      <section style={{ position: 'relative', minHeight: '620px', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', color: '#fff', backgroundImage: 'linear-gradient(180deg, rgba(11,42,61,.62), rgba(11,42,61,.86)), url(/MINISTRIES/prayer1.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center 30%' }}>
+      <section style={{ position: 'relative', minHeight: '620px', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', color: '#fff', backgroundImage: 'linear-gradient(rgba(11,42,61,.86),rgba(11,42,61,.86)), url(/MINISTRIES/prayer1.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center 30%' }}>
         <div style={{ maxWidth: '820px', padding: '150px 26px 80px' }}>
-          <span style={{ ...eyebrow, color: '#ff9ea2', animation: 'eaUp .6s ease both' }}>Prayer &amp; Intercessory Ministry</span>
-          <h1 style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, fontSize: '62px', lineHeight: 1.03, letterSpacing: '-.02em', margin: '14px 0 18px', textWrap: 'balance', animation: 'eaUp .7s ease .08s both' }}>
+          <span style={{ ...eyebrow, color: '#ff9ea2', animation: 'eaUp .3s ease both' }}>Prayer &amp; Intercessory Ministry</span>
+          <h1 style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, fontSize: '62px', lineHeight: 1.03, letterSpacing: '-.02em', margin: '14px 0 18px', textWrap: 'balance', animation: 'eaUp .3s ease .02s both' }}>
             A praying church
           </h1>
-          <p style={{ fontSize: '18.5px', lineHeight: 1.7, color: '#e6eef4', maxWidth: '600px', margin: '0 auto 10px', animation: 'eaUp .7s ease .16s both' }}>
-            East Assembly is built on the biblical foundation of prayer, praying in one accord.
+          <p style={{ fontSize: '18.5px', lineHeight: 1.7, color: '#e6eef4', maxWidth: '600px', margin: '0 auto 10px', animation: 'eaUp .3s ease .04s both' }}>
+            East Assembly follows the Biblical foundation of prayer, as a prayerful church, praying in one accord.
           </p>
-          <div style={{ color: '#ff9ea2', fontWeight: 800, letterSpacing: '.1em', fontSize: '13px', marginBottom: '30px', animation: 'eaUp .7s ease .2s both' }}>ACTS 5</div>
-          <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap', animation: 'eaUp .7s ease .24s both' }}>
-            <Hover as={Link} to="/contact" style={{ textDecoration: 'none', color: '#fff', fontWeight: 800, padding: '15px 30px', borderRadius: '100px', background: 'linear-gradient(135deg,#ec1c24,#ff5058)', boxShadow: '0 12px 30px rgba(236,28,36,.35)', fontSize: '15.5px' }} hoverStyle={{ transform: 'translateY(-2px)' }}>Pray With Us</Hover>
-            <Hover as={Link} to="/ministries" style={{ textDecoration: 'none', color: '#fff', fontWeight: 800, padding: '15px 30px', borderRadius: '100px', background: 'rgba(255,255,255,.14)', border: '1.6px solid rgba(255,255,255,.55)', fontSize: '15.5px' }} hoverStyle={{ background: 'rgba(255,255,255,.26)' }}>All Ministries</Hover>
+          <div style={{ color: '#ff9ea2', fontWeight: 800, letterSpacing: '.1em', fontSize: '13px', marginBottom: '30px', animation: 'eaUp .3s ease .05s both' }}>ACTS 5</div>
+          <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap', animation: 'eaUp .3s ease .06s both' }}>
+            <Hover as={Link} to="/contact" style={{ textDecoration: 'none', color: '#fff', fontWeight: 800, padding: '15px 30px', borderRadius: '6px', background: '#ec1c24', fontSize: '15.5px' }} hoverStyle={{ transform: 'translateY(-2px)' }}>Pray With Us</Hover>
+            <Hover as={Link} to="/ministries" style={{ textDecoration: 'none', color: '#fff', fontWeight: 800, padding: '15px 30px', borderRadius: '6px', background: '#12384c', fontSize: '15.5px' }} hoverStyle={{ background: '#0b2a3d' }}>All Ministries</Hover>
           </div>
         </div>
       </section>
@@ -51,8 +51,7 @@ export default function PrayerMinistry() {
             God is speaking in current times.
           </p>
           <p style={{ ...lead, maxWidth: '640px', margin: '0 auto' }}>
-            Prayer is part and parcel of who East is. More than that, it connects us to the divine and makes
-            us the light that Jesus commanded us to be.
+            Prayer is part and parcel of what East is all about, but more so it is connecting to the divine and being the light that Jesus commanded us to be.
           </p>
         </div>
       </section>
@@ -98,12 +97,12 @@ export default function PrayerMinistry() {
 
       {/* CTA */}
       <section style={{ padding: '0 26px 96px' }}>
-        <div data-reveal="scale" style={{ maxWidth: '1000px', margin: '0 auto', background: 'linear-gradient(135deg,#00adee,#0b7bb0)', color: '#fff', borderRadius: '28px', padding: '60px', textAlign: 'center', boxShadow: '0 30px 60px rgba(0,120,180,.22)' }}>
+        <div data-reveal="scale" style={{ maxWidth: '1000px', margin: '0 auto', background: '#00adee', color: '#fff', borderRadius: '28px', padding: '60px', textAlign: 'center', boxShadow: '0 30px 60px rgba(0,120,180,.22)' }}>
           <h2 style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, fontSize: '36px', margin: '0 0 14px', textWrap: 'balance' }}>Bring your requests to the altar</h2>
           <p style={{ color: '#e2f4fc', fontSize: '17px', maxWidth: '540px', margin: '0 auto 30px', lineHeight: 1.6 }}>Share a prayer request or join our daily times of prayer. We would love to stand with you.</p>
           <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Hover as={Link} to="/contact" style={{ textDecoration: 'none', background: '#fff', color: '#0b7bb0', fontWeight: 800, padding: '15px 32px', borderRadius: '100px', display: 'inline-block', transition: 'transform .2s' }} hoverStyle={{ transform: 'translateY(-2px)' }}>Share a Request</Hover>
-            <Hover as={Link} to="/ministries" style={{ textDecoration: 'none', background: 'rgba(255,255,255,.16)', border: '1.7px solid rgba(255,255,255,.55)', color: '#fff', fontWeight: 800, padding: '15px 32px', borderRadius: '100px', display: 'inline-block', transition: 'background .2s' }} hoverStyle={{ background: 'rgba(255,255,255,.26)' }}>Back to Ministries</Hover>
+            <Hover as={Link} to="/contact" style={{ textDecoration: 'none', background: '#fff', color: '#0b7bb0', fontWeight: 800, padding: '15px 32px', borderRadius: '6px', display: 'inline-block', transition: 'transform .2s' }} hoverStyle={{ transform: 'translateY(-2px)' }}>Share a Request</Hover>
+            <Hover as={Link} to="/ministries" style={{ textDecoration: 'none', background: '#12384c', color: '#fff', fontWeight: 800, padding: '15px 32px', borderRadius: '6px', display: 'inline-block', transition: 'background .2s' }} hoverStyle={{ background: '#0b2a3d' }}>Back to Ministries</Hover>
           </div>
         </div>
       </section>

@@ -11,7 +11,7 @@ export default function Give() {
     <div style={{ fontFamily: "'Mulish',sans-serif", background: '#fff', color: '#4a5763', paddingTop: '92px' }}>
       <Nav />
 
-      <section style={{ background: 'linear-gradient(180deg,#ffffff,#f2f9fd)', borderBottom: '1px solid #e7f0f6' }}>
+      <section style={{ background: '#f2f9fd', borderBottom: '1px solid #e7f0f6' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '76px 26px', textAlign: 'center' }}>
           <span
             style={{
@@ -19,7 +19,7 @@ export default function Give() {
               fontWeight: 800,
               letterSpacing: '.14em',
               fontSize: '13px',
-              animation: 'eaUp .6s ease both',
+              animation: 'eaUp .3s ease both',
             }}
           >
             GENEROSITY
@@ -32,7 +32,7 @@ export default function Give() {
               color: '#00adee',
               margin: '14px 0 16px',
               letterSpacing: '-.02em',
-              animation: 'eaUp .7s ease .08s both',
+              animation: 'eaUp .3s ease .02s both',
             }}
           >
             Give &amp; Support the Mission
@@ -44,11 +44,10 @@ export default function Give() {
               maxWidth: '600px',
               margin: '0 auto',
               lineHeight: 1.65,
-              animation: 'eaUp .7s ease .16s both',
+              animation: 'eaUp .3s ease .04s both',
             }}
           >
-            Your generosity fuels the Gospel - discipleship, outreach, and caring for our community.
-            Thank you for giving cheerfully.
+            Explore the various giving options available to support our church&rsquo;s mission and outreach. Your generosity enables us to continue spreading the love of Christ and making a positive impact in our community and beyond. Thank you for your continued support and generosity.
           </p>
         </div>
       </section>
@@ -105,7 +104,7 @@ export default function Give() {
                     M-PESA Paybill
                   </div>
                   <div style={{ color: '#5a6772', fontSize: '14.5px' }}>
-                    Paybill &amp; account details provided by the church.
+                    Account No: Tithe / Offering / Missions / Foodbank / Land / Tiles. Paybill number provided by the church.
                   </div>
                 </div>
               </div>
@@ -126,8 +125,8 @@ export default function Give() {
                     width: '50px',
                     height: '50px',
                     borderRadius: '13px',
-                    background: '#e8f7fd',
-                    color: '#0e9fd6',
+                    background: '#00adee',
+                    color: '#fff',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -139,10 +138,10 @@ export default function Give() {
                 </span>
                 <div>
                   <div style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, color: '#12384c', fontSize: '16px' }}>
-                    Bank Transfer
+                    Offering
                   </div>
                   <div style={{ color: '#5a6772', fontSize: '14.5px' }}>
-                    Give directly via bank deposit or standing order.
+                    Support ongoing church ministries and outreach efforts.
                   </div>
                 </div>
               </div>
@@ -163,8 +162,8 @@ export default function Give() {
                     width: '50px',
                     height: '50px',
                     borderRadius: '13px',
-                    background: '#fdecec',
-                    color: '#ec1c24',
+                    background: '#ec1c24',
+                    color: '#fff',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -176,10 +175,84 @@ export default function Give() {
                 </span>
                 <div>
                   <div style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, color: '#12384c', fontSize: '16px' }}>
-                    In Person
+                    Land Project
                   </div>
                   <div style={{ color: '#5a6772', fontSize: '14.5px' }}>
-                    Give during any of our Sunday services.
+                    Contribute towards the land project for future church expansion.
+                  </div>
+                </div>
+              </div>
+              <div
+                style={{
+                  background: '#fff',
+                  border: '1px solid #e7f0f6',
+                  borderRadius: '20px',
+                  padding: '24px',
+                  display: 'flex',
+                  gap: '16px',
+                  alignItems: 'center',
+                  boxShadow: '0 8px 24px rgba(16,80,120,.06)',
+                }}
+              >
+                <span
+                  style={{
+                    width: '50px',
+                    height: '50px',
+                    borderRadius: '13px',
+                    background: '#ec1c24',
+                    color: '#fff',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '22px',
+                    flex: 'none',
+                  }}
+                >
+                  <Icon name="heart" size={22} />
+                </span>
+                <div>
+                  <div style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, color: '#12384c', fontSize: '16px' }}>
+                    Food Bank
+                  </div>
+                  <div style={{ color: '#5a6772', fontSize: '14.5px' }}>
+                    Provide food for the less fortunate in our community.
+                  </div>
+                </div>
+              </div>
+              <div
+                style={{
+                  background: '#fff',
+                  border: '1px solid #e7f0f6',
+                  borderRadius: '20px',
+                  padding: '24px',
+                  display: 'flex',
+                  gap: '16px',
+                  alignItems: 'center',
+                  boxShadow: '0 8px 24px rgba(16,80,120,.06)',
+                }}
+              >
+                <span
+                  style={{
+                    width: '50px',
+                    height: '50px',
+                    borderRadius: '13px',
+                    background: '#ec1c24',
+                    color: '#fff',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '22px',
+                    flex: 'none',
+                  }}
+                >
+                  <Icon name="heart" size={22} />
+                </span>
+                <div>
+                  <div style={{ fontFamily: "'Plus Jakarta Sans'", fontWeight: 800, color: '#12384c', fontSize: '16px' }}>
+                    Missions
+                  </div>
+                  <div style={{ color: '#5a6772', fontSize: '14.5px' }}>
+                    Support missions outreach locally and beyond our community.
                   </div>
                 </div>
               </div>
@@ -215,15 +288,15 @@ export default function Give() {
                 style={{
                   padding: '14px',
                   borderRadius: '12px',
-                  border: '1.5px solid #dbe8f1',
-                  background: '#f7fbfe',
-                  fontWeight: 800,
-                  color: '#12384c',
+                  border: 'none',
+                  background: '#00adee',
+                  fontWeight: 700,
+                  color: '#fff',
                   fontFamily: 'Mulish',
                   cursor: 'pointer',
                   transition: 'all .2s',
                 }}
-                hoverStyle={{ borderColor: '#00adee', color: '#0e9fd6' }}
+                hoverStyle={{ background: '#0b8fc4' }}
               >
                 500
               </Hover>
@@ -231,10 +304,10 @@ export default function Give() {
                 style={{
                   padding: '14px',
                   borderRadius: '12px',
-                  border: '1.5px solid #ec1c24',
-                  background: '#fdecec',
-                  fontWeight: 800,
-                  color: '#ec1c24',
+                  border: 'none',
+                  background: '#ec1c24',
+                  fontWeight: 700,
+                  color: '#fff',
                   fontFamily: 'Mulish',
                   cursor: 'pointer',
                 }}
@@ -246,15 +319,15 @@ export default function Give() {
                 style={{
                   padding: '14px',
                   borderRadius: '12px',
-                  border: '1.5px solid #dbe8f1',
-                  background: '#f7fbfe',
-                  fontWeight: 800,
-                  color: '#12384c',
+                  border: 'none',
+                  background: '#00adee',
+                  fontWeight: 700,
+                  color: '#fff',
                   fontFamily: 'Mulish',
                   cursor: 'pointer',
                   transition: 'all .2s',
                 }}
-                hoverStyle={{ borderColor: '#00adee', color: '#0e9fd6' }}
+                hoverStyle={{ background: '#0b8fc4' }}
               >
                 2,500
               </Hover>
@@ -293,25 +366,26 @@ export default function Give() {
               <option>Tithe</option>
               <option>Offering</option>
               <option>Missions</option>
-              <option>Building Fund</option>
-              <option>Benevolence</option>
+              <option>Food Bank</option>
+              <option>Land Project</option>
+              <option>Tiles</option>
             </select>
             <Hover
               as="button"
               style={{
                 width: '100%',
                 padding: '16px',
-                borderRadius: '100px',
+                borderRadius: '6px',
                 border: 'none',
-                background: 'linear-gradient(135deg,#00adee,#0b7bb0)',
+                background: '#00adee',
                 color: '#fff',
-                fontWeight: 800,
+                fontWeight: 700,
                 fontFamily: 'Mulish',
                 fontSize: '16px',
                 cursor: 'pointer',
-                transition: 'transform .2s',
+                transition: 'background .2s',
               }}
-              hoverStyle={{ transform: 'translateY(-2px)' }}
+              hoverStyle={{ background: '#0b8fc4' }}
             >
               Proceed to Give
             </Hover>

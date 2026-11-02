@@ -13,9 +13,9 @@ export default function Events() {
       <Nav active="events" />
 
       {/* HERO */}
-      <section style={{ background: 'linear-gradient(180deg,#ffffff,#f2f9fd)', borderBottom: '1px solid #e7f0f6' }}>
+      <section style={{ background: '#f2f9fd', borderBottom: '1px solid #e7f0f6' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '76px 26px', textAlign: 'center' }}>
-          <span style={{ color: '#ec1c24', fontWeight: 800, letterSpacing: '.14em', fontSize: '13px', animation: 'eaUp .6s ease both' }}>
+          <span style={{ color: '#ec1c24', fontWeight: 800, letterSpacing: '.14em', fontSize: '13px', animation: 'eaUp .3s ease both' }}>
             WHAT&rsquo;S HAPPENING
           </span>
           <h1
@@ -26,12 +26,12 @@ export default function Events() {
               color: '#00adee',
               margin: '14px 0 16px',
               letterSpacing: '-.02em',
-              animation: 'eaUp .7s ease .08s both',
+              animation: 'eaUp .3s ease .02s both',
             }}
           >
             Church Events
           </h1>
-          <p style={{ fontSize: '18px', color: '#5a6772', maxWidth: '640px', margin: '0 auto', lineHeight: 1.65, animation: 'eaUp .7s ease .16s both' }}>
+          <p style={{ fontSize: '18px', color: '#5a6772', maxWidth: '640px', margin: '0 auto', lineHeight: 1.65, animation: 'eaUp .3s ease .04s both' }}>
             Conferences, retreats, fellowships, and more. There&rsquo;s always something happening at East
             Assembly.
           </p>

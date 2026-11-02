@@ -27,7 +27,7 @@ export default function Footer() {
       <div
         style={{
           height: '4px',
-          background: 'linear-gradient(90deg,#ec1c24 0%,#ec1c24 45%,#00adee 55%,#00adee 100%)',
+          background: 'linear-gradient(90deg,#ec1c24 50%,#00adee 50%)',
         }}
       />
       <div style={{ maxWidth: '1260px', margin: '0 auto', padding: '60px 26px 0' }}>
@@ -152,7 +152,7 @@ export default function Footer() {
                     flex: 1,
                     minWidth: 0,
                     padding: '11px 13px',
-                    borderRadius: '100px',
+                    borderRadius: '6px',
                     border: '1px solid #d3e2ee',
                     background: '#fff',
                     color: '#1f2a33',
@@ -164,7 +164,7 @@ export default function Footer() {
                   as="button"
                   style={{
                     padding: '11px 20px',
-                    borderRadius: '100px',
+                    borderRadius: '6px',
                     border: 'none',
                     background: '#00adee',
                     color: '#fff',
